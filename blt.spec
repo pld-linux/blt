@@ -114,7 +114,7 @@ Programas que demonstram as características do BLT.
 
 %build
 #aclocal
-#%{__autoconf}
+#%%{__autoconf}
 %configure2_13
 %{__make}
 
