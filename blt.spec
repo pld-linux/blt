@@ -130,9 +130,10 @@ cp -f /usr/share/automake/config.* cf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_prefix}
+install -d $RPM_BUILD_ROOT{%{_prefix},%{_examplesdir}/%{name}}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 ln -sf libBLT24.so $RPM_BUILD_ROOT%{_libdir}/libBLT.so
 ln -sf libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so
@@ -144,7 +145,6 @@ mv -f $RPM_BUILD_ROOT%{_bindir}/bltwish24 $RPM_BUILD_ROOT%{_bindir}/bltwish
 # bitmap.n is provided by tk-devel
 rm -f $RPM_BUILD_ROOT%{_mandir}/mann/bitmap.n
 
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 mv -f $RPM_BUILD_ROOT%{_libdir}/blt2.4/demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 cp -rf examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 
