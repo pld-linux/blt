@@ -9,9 +9,6 @@ Version:	2.4u
 Release:	6
 License:	MIT
 Group:		Development/Tools
-Group(de):	Entwicklung/Werkzeuge
-Group(fr):	Development/Outils
-Group(pl):	Programowanie/Narzêdzia
 Source0:	ftp://tcltk.sourceforge.net/pub/tcltk/blt/BLT%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
@@ -66,9 +63,6 @@ tablas y folders.
 Summary:	BLT development package
 Summary(pl):	Pakiet dla programistów BLT
 Group:		Development/Tools
-Group(de):	Entwicklung/Werkzeuge
-Group(fr):	Development/Outils
-Group(pl):	Programowanie/Narzêdzia
 Requires:	%{name} = %{version}
 
 %description devel
@@ -81,9 +75,6 @@ Pliki nag³ówkowe BLT.
 Summary:	BLT static libraries
 Summary(pl):	Biblioteki statyczne BLT
 Group:		Development/Tools
-Group(de):	Entwicklung/Werkzeuge
-Group(fr):	Development/Outils
-Group(pl):	Programowanie/Narzêdzia
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -98,9 +89,6 @@ Summary(pl):	Dema i przyk³ady do BLT
 Summary(pt_BR):	Programas que demonstram as características do BLT
 Summary(es):	BLT Demonstrations
 Group:		Development/Tools
-Group(de):	Entwicklung/Werkzeuge
-Group(fr):	Development/Outils
-Group(pl):	Programowanie/Narzêdzia
 Requires:	%{name} = %{version}
 
 %description demos
