@@ -14,6 +14,7 @@ Patch1:		%{name}-paths.patch
 Patch2:		%{name}-excl.patch
 BuildRequires:	tcl-devel >= 8.3.2
 BuildRequires:	tk-devel >= 8.3.2
+BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -86,6 +87,7 @@ Programy demonstracyjne i przyk³adowe do BLT.
 %patch2 -p1
 
 %build
+aclocal
 autoconf
 %configure
 %{__make} 
