@@ -9,10 +9,11 @@ Version:	2.4u
 Release:	8
 License:	MIT
 Group:		Development/Tools
-Source0:	ftp://tcltk.sourceforge.net/pub/tcltk/blt/BLT%{version}.tar.gz
+Source0:	ftp://ftp.scriptics.com/pub/tcl/blt/BLT%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
 Patch2:		%{name}-excl.patch
+URL:		http://www.tcltk.com/blt/
 #BuildRequires:	autoconf
 #BuildRequires:	automake
 BuildRequires:	tcl-devel >= 8.3.2
