@@ -1,14 +1,15 @@
 Summary:	A Tk toolkit extension, including widgets, geometry managers, etc.
 Name:		blt
-Version:	2.4q
+Version:	2.4u
 Release:	1
 License:	MIT
 Group:		Development/Tools
+Group(de):	Entwicklung/Werkzeuge
 Group(fr):	Development/Outils
 Group(pl):	Programowanie/Narzêdzia
-Obsoletes:	blt-devel
-Source0:	ftp://ftp.tcltk.com/aa004735/pub/blt/BLT%{version}.tar.gz
-Patch0:		blt-prefix.patch
+Source0:	ftp://tcltk.sourceforge.net/pub/tcltk/blt/BLT%{version}.tar.gz
+Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-paths.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,16 +32,40 @@ równie¿ zainstalowaæ Tcl/Tk.
 %package devel
 Summary:	A Tk toolkit extension, including widgets, geometry managers, etc.
 Group:		Development/Tools
+Group(de):	Entwicklung/Werkzeuge
+Group(fr):	Development/Outils
+Group(pl):	Programowanie/Narzêdzia
 Requires:	%{name} = %{version}
+
+%description devel
+BLT header files.
 
 %package static
 Summary:	A Tk toolkit extension, including widgets, geometry managers, etc.
 Group:		Development/Tools
+Group(de):	Entwicklung/Werkzeuge
+Group(fr):	Development/Outils
+Group(pl):	Programowanie/Narzêdzia
 Requires:	%{name}-devel = %{version}
+
+%description static
+BLT static libraries.
+
+%package demos
+Summary:	A Tk toolkit extension, including widgets, geometry managers, etc.
+Group:		Development/Tools
+Group(de):	Entwicklung/Werkzeuge
+Group(fr):	Development/Outils
+Group(pl):	Programowanie/Narzêdzia
+Requires:	%{name} = %{version}
+
+%description demos
+BLT demos and examples.
 
 %prep
 %setup -q -n blt%{version}
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 %configure
@@ -50,17 +75,26 @@ Requires:	%{name}-devel = %{version}
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{etc,sbin}
 
-%{__make} install \
-	exec_prefix=$RPM_BUILD_ROOT%{_prefix}
-	prefix=$RPM_BUILD_ROOT%{_prefix} \
-	scriptdir=$RPM_BUILD_ROOT%{_libdir}/blt2.4 \
-	bare_prefix=%{_prefix}
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-ln -sf libBLT.so.2.4 $RPM_BUILD_ROOT%{_libdir}/libBLT.so
+ln -sf libBLT24.so $RPM_BUILD_ROOT%{_libdir}/libBLT.so
+ln -sf libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so
 
-rm -f $RPM_BUILD_ROOT%{_mandir}/mann/{bitmap,tabset,watch}.n
+# use dynamically linked binaries
+mv -f $RPM_BUILD_ROOT%{_bindir}/bltsh24 $RPM_BUILD_ROOT%{_bindir}/bltsh
+mv -f $RPM_BUILD_ROOT%{_bindir}/bltwish24 $RPM_BUILD_ROOT%{_bindir}/bltwish
 
-gzip -9nf README
+# bitmap.n is provided by tk-devel
+# but why remove tabset.n and watch.n?
+#rm -f $RPM_BUILD_ROOT%{_mandir}/mann/{bitmap,tabset,watch}.n
+rm -f $RPM_BUILD_ROOT%{_mandir}/mann/bitmap.n
+
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}
+mv -f $RPM_BUILD_ROOT%{_libdir}/blt2.4/demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}
+cp -rf examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}
+
+rm -f html/Makefile* $RPM_BUILD_ROOT%{_libdir}/blt2.4/{NEWS,README,PROBLEMS}
+gzip -9nf README NEWS PROBLEMS
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -70,17 +104,21 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.gz html
+%doc *.gz html
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/lib*24.so
 %{_libdir}/blt2.4
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*[a-zA-Z].so
 %{_includedir}/blt.h
 %{_mandir}/mann/*
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+
+%files demos
+%defattr(644,root,root,755)
+%{_examplesdir}/%{name}
