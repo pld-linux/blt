@@ -37,27 +37,29 @@ Tcl/Tk. Je╤li programuje siЙ w Tcl/tk, nale©y zainstalowaФ BLT. Trzeba
 rСwnie© zainstalowaФ Tcl/Tk.
 
 %description -l ru
-BLT - это расширение набора Tk. Наиболее ценной особенностью BLT является
-предоставление бОльшего набора примитивов для Tk, но он также предоставляет
-больше менеджеров геометрии и прочих команд. Следует отметить, что вам не
-надо изменять исходных текстов Tcl или Tk для того, чтобы использовать
-BLT, но вам необходимо установить Tcl/Tk для использования BLT.
+BLT - это расширение набора Tk. Наиболее ценной особенностью BLT
+является предоставление бОльшего набора примитивов для Tk, но он также
+предоставляет больше менеджеров геометрии и прочих команд. Следует
+отметить, что вам не надо изменять исходных текстов Tcl или Tk для
+того, чтобы использовать BLT, но вам необходимо установить Tcl/Tk для
+использования BLT.
 
 %description -l uk
-BLT - це розширення набору Tk. Найб╕льш ц╕нною особлив╕стю BLT ╓ надання
-б╕льшого набору прим╕тив╕в для Tk, але в╕н також нада╓ б╕льше менджер╕в
-геометр╕╖ та ╕нших команд. Сл╕д зазначити, що вам не треба зм╕нювати
-вих╕дних текст╕в Tcl або Tk для того, щоб використовувати BLT, але вам
-необх╕дно встановити Tcl/Tk для використання BLT.
+BLT - це розширення набору Tk. Найб╕льш ц╕нною особлив╕стю BLT ╓
+надання б╕льшого набору прим╕тив╕в для Tk, але в╕н також нада╓ б╕льше
+менджер╕в геометр╕╖ та ╕нших команд. Сл╕д зазначити, що вам не треба
+зм╕нювати вих╕дних текст╕в Tcl або Tk для того, щоб використовувати
+BLT, але вам необх╕дно встановити Tcl/Tk для використання BLT.
 
 %description -l pt_BR
-O BLT fornece componentes (widgets) e comandos extras para programas tk. Ele
-inclui componentes grАficos, gerenciamento de geometria de tabelas e folders.
+O BLT fornece componentes (widgets) e comandos extras para programas
+tk. Ele inclui componentes grАficos, gerenciamento de geometria de
+tabelas e folders.
 
 %description -l es
-BLT ofrece componentes (widgets) y comandos extras para programas
-tk. Incluye componentes grАficos, administraciСn de geometrМa de
-tablas y folders.
+BLT ofrece componentes (widgets) y comandos extras para programas tk.
+Incluye componentes grАficos, administraciСn de geometrМa de tablas y
+folders.
 
 %package devel
 Summary:	BLT development package
@@ -97,10 +99,10 @@ BLT demos and examples.
 %description demos -l pl
 Programy demonstracyjne i przykЁadowe do BLT.
 
-%description -l pt_BR demo
+%description demo -l pt_BR
 Programas que demonstram as caracterМsticas do BLT
 
-%description -l es demo
+%description demo -l es
 BLT Demonstrations
 
 %prep
@@ -113,7 +115,7 @@ BLT Demonstrations
 #aclocal
 #autoconf
 %configure2_13
-%{__make} 
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
