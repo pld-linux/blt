@@ -27,6 +27,8 @@ Requires:	tcl >= 8.4.6
 Requires:	tk >= 8.4.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_ulibdir	%{_prefix}/lib
+
 %description
 BLT is an extension to the Tk toolkit. BLT's most useful feature is
 the provision of more widgets for Tk, but it also provides more
@@ -137,7 +139,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_prefix},%{_examplesdir}/%{name}-%{release}}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	libdir=%{_libdir}
 
 ln -sf libBLT24.so $RPM_BUILD_ROOT%{_libdir}/libBLT.so
 ln -sf libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so
@@ -149,10 +152,10 @@ mv -f $RPM_BUILD_ROOT%{_bindir}/bltwish24 $RPM_BUILD_ROOT%{_bindir}/bltwish
 # bitmap.n is provided by tk-devel
 rm -f $RPM_BUILD_ROOT%{_mandir}/mann/bitmap.n
 
-mv -f $RPM_BUILD_ROOT%{_libdir}/blt2.4/demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{release}
+mv -f $RPM_BUILD_ROOT%{_ulibdir}/blt2.4/demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{release}
 cp -rf examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{release}
 
-rm -f html/Makefile* $RPM_BUILD_ROOT%{_libdir}/blt2.4/{NEWS,README,PROBLEMS}
+rm -f html/Makefile* $RPM_BUILD_ROOT%{_ulibdir}/blt2.4/{NEWS,README,PROBLEMS}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -165,7 +168,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README NEWS PROBLEMS
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/libBLT*24.so
-%{_libdir}/blt2.4
+%{_ulibdir}/blt2.4
 
 %files devel
 %defattr(644,root,root,755)
