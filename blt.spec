@@ -6,7 +6,7 @@ Summary(ru):	Расширение набора Tk, включая графические примитивы, менеджеры геом
 Summary(uk):	Розширення набору Tk, включаючи граф╕чн╕ прим╕тиви, менеджери геометр╕╖ ╕ т.╕
 Name:		blt
 Version:	2.4u
-Release:	13
+Release:	14
 License:	MIT
 Group:		Development/Tools
 Source0:	ftp://ftp.scriptics.com/pub/tcl/blt/BLT%{version}.tar.gz
@@ -21,8 +21,10 @@ Patch6:		%{name}-norpath.patch
 URL:		http://www.tcltk.com/blt/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	tcl-devel >= 8.4.3
-BuildRequires:	tk-devel >= 8.4.3
+BuildRequires:	tcl-devel >= 8.4.6
+BuildRequires:	tk-devel >= 8.4.6
+Requires:	tcl >= 8.4.6
+Requires:	tk >= 8.4.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -71,7 +73,7 @@ BLT, але вам необх╕дно встановити Tcl/Tk для використання BLT.
 Summary:	BLT development package
 Summary(pl):	Pakiet dla programistСw BLT
 Group:		Development/Tools
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 BLT header files.
@@ -83,7 +85,7 @@ Pliki nagЁСwkowe BLT.
 Summary:	BLT static libraries
 Summary(pl):	Biblioteki statyczne BLT
 Group:		Development/Tools
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 BLT static libraries.
@@ -97,7 +99,7 @@ Summary(pl):	Dema i przykЁady do BLT
 Summary(pt_BR):	Programas que demonstram as caracterМsticas do BLT
 Summary(es):	BLT Demonstrations
 Group:		Development/Tools
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description demos
 BLT demos and examples.
@@ -135,14 +137,8 @@ install -d $RPM_BUILD_ROOT{%{_prefix},%{_examplesdir}/%{name}}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_libdir}/libBLT24.so $RPM_BUILD_ROOT%{_libdir}/libBLT24.so.0.0
-mv $RPM_BUILD_ROOT%{_libdir}/libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLTlite24.so.0.0
-ln -sf libBLT24.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libBLT.so.0.0
-ln -sf libBLT24.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libBLT24.so
-ln -sf libBLT24.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libBLT.so
-ln -sf libBLTlite24.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so.0.0
-ln -sf libBLTlite24.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libBLTlite24.so
-ln -sf libBLTlite24.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so
+ln -sf libBLT24.so $RPM_BUILD_ROOT%{_libdir}/libBLT.so
+ln -sf libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so
 
 # use dynamically linked binaries
 mv -f $RPM_BUILD_ROOT%{_bindir}/bltsh24 $RPM_BUILD_ROOT%{_bindir}/bltsh
@@ -166,13 +162,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README NEWS PROBLEMS
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libBLT*24.so
 %{_libdir}/blt2.4
 
 %files devel
 %defattr(644,root,root,755)
 %doc html
-%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/libBLT*[A-Za-z].so
 %{_includedir}/blt*.h
 %{_mandir}/mann/*
 
