@@ -69,9 +69,3 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %attr(644,root,root) /usr/lib/lib*.a
-
-%changelog
-* Wed Jul  7 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.4g-5]
-- based on TurboLinux spec,
-- spec rewrited by PLD team.
