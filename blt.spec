@@ -12,20 +12,21 @@ Patch0:		blt-prefix.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-BLT is an extension to the Tk toolkit. BLT's most useful feature is the
-provision of more widgets for Tk, but it also provides more geometry
-managers and miscellaneous other commands. Note that you won't need to do
-any patching of the Tcl or Tk source files to use BLT, but you will need to
-have Tcl/Tk installed in order to use BLT.  If you are programming with the
-Tk toolkit, you should install BLT. You will need to have Tcl/Tk installed.
+BLT is an extension to the Tk toolkit. BLT's most useful feature is
+the provision of more widgets for Tk, but it also provides more
+geometry managers and miscellaneous other commands. Note that you
+won't need to do any patching of the Tcl or Tk source files to use
+BLT, but you will need to have Tcl/Tk installed in order to use BLT.
+If you are programming with the Tk toolkit, you should install BLT.
+You will need to have Tcl/Tk installed.
 
 %description -l pl
 BLT jest rozszerzeniem Tk. Najbardziej u¿yteczn± funkcj± BLT jest
-dostarczenie Tk wiêkszej ilo¶ci widgetów; oferuje równie¿ wiêcej mened¿erów
-geometrii i innych poleceñ. Aby u¿ywaæ BLT nie trzeba ³ataæ plików
-¼ród³owych Tcl ani Tk, trzeba jednak mieæ zainstalowanego Tcl/Tk. Je¶li
-programuje siê w Tcl/tk, nale¿y zainstalowaæ BLT. Trzeba równie¿
-zainstalowaæ Tcl/Tk.
+dostarczenie Tk wiêkszej ilo¶ci widgetów; oferuje równie¿ wiêcej
+mened¿erów geometrii i innych poleceñ. Aby u¿ywaæ BLT nie trzeba ³ataæ
+plików ¼ród³owych Tcl ani Tk, trzeba jednak mieæ zainstalowanego
+Tcl/Tk. Je¶li programuje siê w Tcl/tk, nale¿y zainstalowaæ BLT. Trzeba
+równie¿ zainstalowaæ Tcl/Tk.
 
 %package devel
 Summary:	A Tk toolkit extension, including widgets, geometry managers, etc.
@@ -85,4 +86,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/mann/*
 
 %files static
-%attr(644,root,root) %{_libdir}/lib*.a
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
