@@ -1,5 +1,5 @@
 Summary:	A Tk toolkit extension, including widgets, geometry managers, etc
-Summary(pl):	Rozszerezenie Tk umo¿liwiajace operowanie na kontrolkach i wiele innych
+Summary(pl):	Rozszerzenie Tk umo¿liwiajace operowanie na kontrolkach i wiele innych
 Name:		blt
 Version:	2.4u
 Release:	5
@@ -14,6 +14,7 @@ Patch1:		%{name}-paths.patch
 Patch2:		%{name}-excl.patch
 BuildRequires:	tcl-devel >= 8.3.2
 BuildRequires:	tk-devel >= 8.3.2
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,7 +35,8 @@ Tcl/Tk. Je¶li programuje siê w Tcl/tk, nale¿y zainstalowaæ BLT. Trzeba
 równie¿ zainstalowaæ Tcl/Tk.
 
 %package devel
-Summary:	A Tk toolkit extension, including widgets, geometry managers, etc.
+Summary:	BLT development package
+Summary(pl):	Pakiet dla programistów BLT
 Group:		Development/Tools
 Group(de):	Entwicklung/Werkzeuge
 Group(fr):	Development/Outils
@@ -44,8 +46,12 @@ Requires:	%{name} = %{version}
 %description devel
 BLT header files.
 
+%description devel -l pl
+Pliki nag³ówkowe BLT.
+
 %package static
-Summary:	A Tk toolkit extension, including widgets, geometry managers, etc.
+Summary:	BLT static libraries
+Summary(pl):	Biblioteki statyczne BLT
 Group:		Development/Tools
 Group(de):	Entwicklung/Werkzeuge
 Group(fr):	Development/Outils
@@ -55,8 +61,12 @@ Requires:	%{name}-devel = %{version}
 %description static
 BLT static libraries.
 
+%description static -l pl
+Biblioteki statyczne BLT.
+
 %package demos
-Summary:	A Tk toolkit extension, including widgets, geometry managers, etc.
+Summary:	BLT demos and examples
+Summary(pl):	Dema i przyk³ady do BLT
 Group:		Development/Tools
 Group(de):	Entwicklung/Werkzeuge
 Group(fr):	Development/Outils
@@ -65,6 +75,9 @@ Requires:	%{name} = %{version}
 
 %description demos
 BLT demos and examples.
+
+%description demos -l pl
+Programy demonstracyjne i przyk³adowe do BLT.
 
 %prep
 %setup -q -n blt%{version}
@@ -100,11 +113,11 @@ rm -f html/Makefile* $RPM_BUILD_ROOT%{_libdir}/blt2.4/{NEWS,README,PROBLEMS}
 
 gzip -9nf README NEWS PROBLEMS
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
