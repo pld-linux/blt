@@ -1,0 +1,55 @@
+--- blt2.4u/aclocal.m4.orig	Wed Jan 12 21:15:36 2000
++++ blt2.4u/aclocal.m4	Tue Mar  4 20:24:37 2003
+@@ -12,10 +12,6 @@
+ cat > conftest.$ac_ext <<EOF
+ [#]line __oline__ "configure"
+ #include "confdefs.h"
+-ifelse(AC_LANG, CPLUSPLUS, [#ifdef __cplusplus
+-extern "C" void exit(int);
+-#endif
+-])dnl
+ [$2]
+ EOF
+ eval $ac_link
+--- blt2.4u/configure.in.orig	Fri Jun 23 02:40:05 2000
++++ blt2.4u/configure.in	Tue Mar  4 20:32:04 2003
+@@ -58,6 +58,9 @@
+ AC_ARG_WITH(gnu_ld,	[  --with-gnu-ld           Use GNU linker],
+   blt_with_gnu_ld="yes")
+ 
++AC_PROG_CC
++AC_PROG_CPP
++AC_PROG_EGREP
+ AC_CANONICAL_SYSTEM
+ 
+ # -----------------------------------------------------------------------
+@@ -87,29 +90,9 @@
+ #  4. default to cc
+ #
+ 
+-AC_MSG_CHECKING([which C compiler])
+-if test "x${blt_with_cc}" != "x" ; then 
+-  CC=${blt_with_cc}
+-  unset ac_cv_prog_CPP
+-  unset ac_cv_prog_CC
+-elif test "x${BLT_ENV_CC}" != "x" ; then
+-  unset ac_cv_prog_CPP
+-  unset ac_cv_prog_CC
+-elif test "x${blt_cv_prog_cc}" != "x" ; then
+-  CC=${blt_cv_prog_cc}
+-  unset ac_cv_prog_CC
+-else 
+-  AC_PROG_CC
+-fi
+-if test "x${CC}" = "x" ; then
+-  CC=cc
+-fi
+-AC_MSG_RESULT([$CC])
+ 
+ unset blt_cv_prog_cc
+ AC_CACHE_VAL(blt_cv_prog_cc, blt_cv_prog_cc=$CC)
+-AC_SUBST(CC)
+-AC_PROG_CPP
+ if test "x${GCC}" != "x" ; then
+   BLT_HAVE_GCC="yes"
+ else

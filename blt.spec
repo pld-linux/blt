@@ -6,16 +6,18 @@ Summary(ru):	Расширение набора tk, включая графические примитивы, менеджеры геом
 Summary(uk):	Розширення набору tk, включаючи граф╕чн╕ прим╕тиви, менеджери геометр╕╖ ╕ т.╕
 Name:		blt
 Version:	2.4u
-Release:	8
+Release:	9
 License:	MIT
 Group:		Development/Tools
 Source0:	ftp://ftp.scriptics.com/pub/tcl/blt/BLT%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
 Patch2:		%{name}-excl.patch
+Patch3:		%{name}-acfix.patch
+Patch4:		%{name}-nolibnsl.patch
 URL:		http://www.tcltk.com/blt/
-#BuildRequires:	autoconf
-#BuildRequires:	automake
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	tcl-devel >= 8.3.2
 BuildRequires:	tk-devel >= 8.3.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -111,15 +113,19 @@ Programas que demonstram as caracterМsticas do BLT.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
-#aclocal
-#%%{__autoconf}
-%configure2_13
+cp -f /usr/share/automake/config.* cf
+%{__autoconf}
+%configure
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_prefix}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
@@ -147,15 +153,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc README NEWS PROBLEMS
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*24.so
 %{_libdir}/blt2.4
 
 %files devel
 %defattr(644,root,root,755)
-%doc README NEWS PROBLEMS html
+%doc html
 %attr(755,root,root) %{_libdir}/lib*[a-zA-Z].so
-%{_includedir}/blt.h
+%{_includedir}/blt*.h
 %{_mandir}/mann/*
 
 %files static
