@@ -1,6 +1,6 @@
 Summary:	A Tk toolkit extension, including widgets, geometry managers, etc
 Summary(es):	Componentes (widgets) y comandos extras para aplicaciones tk
-Summary(pl):	Rozszerzenie Tk umo©liwiajace operowanie na kontrolkach i wiele innych
+Summary(pl):	Rozszerzenie Tk umo©liwiaj╠ce operowanie na kontrolkach i wiele innych
 Summary(pt_BR):	Componentes (widgets) e comandos extras para aplicaГУes tk
 Summary(ru):	Расширение набора tk, включая графические примитивы, менеджеры геометрии и т.д
 Summary(uk):	Розширення набору tk, включаючи граф╕чн╕ прим╕тиви, менеджери геометр╕╖ ╕ т.╕
