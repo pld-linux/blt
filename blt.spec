@@ -126,13 +126,15 @@ Programas que demonstram as características do BLT.
 %build
 cp -f /usr/share/automake/config.* cf
 %{__autoconf}
-%configure
+%configure \
+	--with-tcllibs=%{_libdir} \
+	--with-tklibs=%{_libdir}
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_prefix},%{_examplesdir}/%{name}}
+install -d $RPM_BUILD_ROOT{%{_prefix},%{_examplesdir}/%{name}-%{release}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -147,8 +149,8 @@ mv -f $RPM_BUILD_ROOT%{_bindir}/bltwish24 $RPM_BUILD_ROOT%{_bindir}/bltwish
 # bitmap.n is provided by tk-devel
 rm -f $RPM_BUILD_ROOT%{_mandir}/mann/bitmap.n
 
-mv -f $RPM_BUILD_ROOT%{_libdir}/blt2.4/demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}
-cp -rf examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}
+mv -f $RPM_BUILD_ROOT%{_libdir}/blt2.4/demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{release}
+cp -rf examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{release}
 
 rm -f html/Makefile* $RPM_BUILD_ROOT%{_libdir}/blt2.4/{NEWS,README,PROBLEMS}
 
@@ -178,4 +180,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files demos
 %defattr(644,root,root,755)
-%{_examplesdir}/%{name}
+%{_examplesdir}/%{name}-%{release}
