@@ -35,11 +35,11 @@ folders.
 
 %description -l pl
 BLT jest rozszerzeniem Tk. Najbardziej u¿yteczn± funkcj± BLT jest
-dostarczenie Tk wiêkszej ilo¶ci widgetów; oferuje równie¿ wiêcej
-mened¿erów geometrii i innych poleceñ. Aby u¿ywaæ BLT nie trzeba ³ataæ
-plików ¼ród³owych Tcl ani Tk, trzeba jednak mieæ zainstalowanego
-Tcl/Tk. Je¶li programuje siê w Tcl/tk, nale¿y zainstalowaæ BLT. Trzeba
-równie¿ zainstalowaæ Tcl/Tk.
+rozszerzenie Tk o wiêksz± ilo¶æ kontrolek; oferuje równie¿ wiêcej
+funkcji zarz±dzania geometri± i innych poleceñ. Aby u¿ywaæ BLT nie
+trzeba ³ataæ plików ¼ród³owych Tcl ani Tk, trzeba jednak mieæ
+zainstalowanego Tcl/Tk. Je¶li programuje siê w Tcl/Tk, nale¿y
+zainstalowaæ BLT. Trzeba równie¿ zainstalowaæ Tcl/Tk.
 
 %description -l pt_BR
 O BLT fornece componentes (widgets) e comandos extras para programas
