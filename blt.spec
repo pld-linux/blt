@@ -136,10 +136,12 @@ install -d $RPM_BUILD_ROOT{%{_prefix},%{_examplesdir}/%{name}}
 	DESTDIR=$RPM_BUILD_ROOT
 
 mv $RPM_BUILD_ROOT%{_libdir}/libBLT24.so $RPM_BUILD_ROOT%{_libdir}/libBLT24.so.0.0
-mv $RPM_BUILD_ROOT%{_libdir}/libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLT24lite.so.0.0
+mv $RPM_BUILD_ROOT%{_libdir}/libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLTlite24.so.0.0
 ln -sf libBLT24.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libBLT.so.0.0
+ln -sf libBLT24.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libBLT24.so
 ln -sf libBLT24.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libBLT.so
 ln -sf libBLTlite24.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so.0.0
+ln -sf libBLTlite24.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libBLTlite24.so
 ln -sf libBLTlite24.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so
 
 # use dynamically linked binaries
@@ -164,13 +166,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README NEWS PROBLEMS
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*24.so.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_libdir}/blt2.4
 
 %files devel
 %defattr(644,root,root,755)
 %doc html
-%attr(755,root,root) %{_libdir}/lib*[a-zA-Z].so
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/blt*.h
 %{_mandir}/mann/*
 
