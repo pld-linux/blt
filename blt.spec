@@ -28,8 +28,14 @@ programuje siê w Tcl/tk, nale¿y zainstalowaæ BLT. Trzeba równie¿
 zainstalowaæ Tcl/Tk.
 
 %package devel
+Summary:	A Tk toolkit extension, including widgets, geometry managers, etc.
+Group:		Development/Tools
+Requires:	%{name} = %{version}
 
 %package static
+Summary:	A Tk toolkit extension, including widgets, geometry managers, etc.
+Group:		Development/Tools
+Requires:	%{name}-devel = %{version}
 
 %prep
 %setup -q -n blt%{version}
