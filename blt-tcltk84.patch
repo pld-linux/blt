@@ -1,0 +1,361 @@
+--- blt2.4u/src/bltGraph.c.orig	2000-06-23 02:40:05.000000000 +0200
++++ blt2.4u/src/bltGraph.c	2003-06-16 23:55:02.000000000 +0200
+@@ -1881,7 +1881,7 @@
+     ClientData clientData;	/* Not used. */
+     Tcl_Interp *interp;
+     int argc;
+-    char **argv;
++    CONST84 char **argv;
+ {
+     return NewGraph(interp, argc, argv, TYPE_ELEM_LINE);
+ }
+@@ -1908,7 +1908,7 @@
+     ClientData clientData;	/* Not used. */
+     Tcl_Interp *interp;
+     int argc;
+-    char **argv;
++    CONST84 char **argv;
+ {
+     return NewGraph(interp, argc, argv, TYPE_ELEM_BAR);
+ }
+@@ -1935,7 +1935,7 @@
+     ClientData clientData;	/* Not used. */
+     Tcl_Interp *interp;
+     int argc;
+-    char **argv;
++    CONST84 char **argv;
+ {
+     return NewGraph(interp, argc, argv, TYPE_ELEM_STRIP);
+ }
+--- blt2.4u/src/bltBgexec.c.orig	2000-06-13 02:25:53.000000000 +0200
++++ blt2.4u/src/bltBgexec.c	2003-06-16 23:55:33.000000000 +0200
+@@ -1447,7 +1447,7 @@
+     ClientData clientData;	/* Thread-specific data. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     int *outFdPtr, *errFdPtr;
+     int nProcs;
+--- blt2.4u/src/bltDebug.c.orig	2000-06-13 02:21:51.000000000 +0200
++++ blt2.4u/src/bltDebug.c	2003-06-16 23:56:53.000000000 +0200
+@@ -95,7 +95,7 @@
+     Tcl_CmdProc *proc;		/* Not used. */
+     ClientData cmdClientData;	/* Not used. */
+     int argc;
+-    char **argv;		/* Command after parsing, but before
++    CONST84 char **argv;	/* Command after parsing, but before
+ 				 * evaluation */
+ {
+     static unsigned char traceStack[200];
+@@ -241,7 +241,7 @@
+     ClientData clientData;	/* Not used. */
+     Tcl_Interp *interp;
+     int argc;
+-    char **argv;
++    CONST84 char **argv;
+ {
+     static Tcl_Trace token;
+     static int level;
+--- blt2.4u/src/bltNsUtil.c.orig	2000-06-13 02:21:51.000000000 +0200
++++ blt2.4u/src/bltNsUtil.c	2003-06-16 23:57:12.000000000 +0200
+@@ -392,7 +392,7 @@
+     ClientData clientData;	/* Not used. */
+     Tcl_Interp *interp;		/*  */
+     int argc;
+-    char **argv;
++    CONST84 char **argv;
+ {
+     Tcl_AppendResult(interp, "command \"", argv[0], "\" shouldn't be invoked",
+ 	(char *)NULL);
+--- blt2.4u/src/bltSpline.c.orig	2000-06-13 02:21:51.000000000 +0200
++++ blt2.4u/src/bltSpline.c	2003-06-16 23:57:32.000000000 +0200
+@@ -972,7 +972,7 @@
+     ClientData clientData;	/* Not used. */
+     Tcl_Interp *interp;
+     int argc;
+-    char **argv;
++    CONST84 char **argv;
+ {
+     Blt_OpProc opProc;
+     Blt_Vector *x, *y, *splX, *splY;
+--- blt2.4u/src/bltVector.c.orig	2000-06-23 02:40:06.000000000 +0200
++++ blt2.4u/src/bltVector.c	2003-06-17 00:02:19.000000000 +0200
+@@ -4227,7 +4227,7 @@
+     ClientData clientData;	/* Interpreter-specific data. */
+     Tcl_Interp *interp;
+     int argc;
+-    char **argv;
++    CONST84 char **argv;
+ {
+     Blt_OpProc opProc;
+ 
+--- blt2.4u/src/bltWatch.c.orig	2000-06-13 02:21:52.000000000 +0200
++++ blt2.4u/src/bltWatch.c	2003-06-17 00:02:54.000000000 +0200
+@@ -140,7 +140,7 @@
+     Tcl_CmdProc *cmdProc;	/* Not used. */
+     ClientData cmdClientData;	/* Not used. */
+     int argc;
+-    char **argv;		/* Command after parsing, but before
++    CONST84 char **argv;	/* Command after parsing, but before
+ 				 * evaluation */
+ {
+     Watch *watchPtr = (Watch *)clientData;
+@@ -793,7 +793,7 @@
+     ClientData clientData;	/* Not used. */
+     Tcl_Interp *interp;
+     int argc;
+-    char **argv;
++    CONST84 char **argv;
+ {
+     Blt_OpProc opProc;
+     int result;
+--- blt2.4u/src/bltBeep.c.orig	1999-10-08 08:40:46.000000000 +0200
++++ blt2.4u/src/bltBeep.c	2003-06-17 00:03:13.000000000 +0200
+@@ -51,7 +51,7 @@
+     ClientData clientData;	/* Main window associated with interpreter.*/
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     int percent;
+ 
+--- blt2.4u/src/bltBitmap.c.orig	2000-05-05 06:49:37.000000000 +0200
++++ blt2.4u/src/bltBitmap.c	2003-06-17 00:03:31.000000000 +0200
+@@ -1338,7 +1338,7 @@
+     ClientData clientData;	/* Not used. */
+     Tcl_Interp *interp;		/* Interpreter to report results to */
+     int argc;
+-    char **argv;
++    CONST84 char **argv;
+ {
+     Tk_Window tkwin;
+     Blt_OpProc opProc;
+--- blt2.4u/src/bltBusy.c.orig	2000-05-25 23:40:56.000000000 +0200
++++ blt2.4u/src/bltBusy.c	2003-06-17 00:03:49.000000000 +0200
+@@ -1137,7 +1137,7 @@
+     ClientData clientData;	/* Interpreter-specific data. */
+     Tcl_Interp *interp;		/* Interpreter associated with command */
+     int argc;
+-    char **argv;
++    CONST84 char **argv;
+ {
+     Blt_OpProc opProc;
+     int result;
+--- blt2.4u/src/bltConfig.c.orig	2000-06-23 02:40:05.000000000 +0200
++++ blt2.4u/src/bltConfig.c	2003-06-17 00:05:32.000000000 +0200
+@@ -1301,7 +1301,7 @@
+     ClientData clientData;	/* Vectors of valid strings. */
+     Tcl_Interp *interp;		/* Interpreter to send results back to */
+     Tk_Window tkwin;		/* Not used. */
+-    char *string;		/* String to match. */
++    CONST84 char *string;	/* String to match. */
+     char *widgRec;		/* Widget record. */
+     int offset;			/* Offset of field in record */
+ {
+--- blt2.4u/src/bltHierbox.c.orig	2000-06-23 02:40:05.000000000 +0200
++++ blt2.4u/src/bltHierbox.c	2003-06-17 00:06:08.000000000 +0200
+@@ -5166,7 +5166,7 @@
+     ClientData clientData;	/* Main window associated with interpreter. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     Hierbox *hboxPtr;
+     Tk_Window tkwin;
+--- blt2.4u/src/bltHiertable.c.orig	2000-06-23 02:40:05.000000000 +0200
++++ blt2.4u/src/bltHiertable.c	2003-06-17 00:06:37.000000000 +0200
+@@ -4865,7 +4865,7 @@
+     ClientData clientData;	/* Main window associated with interpreter. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     Hiertable *htabPtr;
+     Tcl_CmdInfo cmdInfo;
+--- blt2.4u/src/bltHtext.c.orig	2000-05-25 23:40:56.000000000 +0200
++++ blt2.4u/src/bltHtext.c	2003-06-17 00:08:30.000000000 +0200
+@@ -2222,8 +2222,8 @@
+ TextVarProc(clientData, interp, name1, name2, flags)
+     ClientData clientData;	/* Information about widget. */
+     Tcl_Interp *interp;		/* Interpreter containing variable. */
+-    char *name1;		/* Name of variable. */
+-    char *name2;		/* Second part of variable name. */
++    CONST84 char *name1;	/* Name of variable. */
++    CONST84 char *name2;	/* Second part of variable name. */
+     int flags;			/* Information about what happened. */
+ {
+     HText *textPtr = (HText *)clientData;
+@@ -4383,7 +4383,7 @@
+     ClientData clientData;	/* Information about hypertext widget. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     Blt_OpProc opProc;
+     int result;
+@@ -4422,7 +4422,7 @@
+     ClientData clientData;	/* Main window associated with interpreter. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     HText *textPtr;
+     Screen *screenPtr;
+--- blt2.4u/src/bltImage.c.orig	2000-06-23 02:40:06.000000000 +0200
++++ blt2.4u/src/bltImage.c	2003-06-17 00:09:35.000000000 +0200
+@@ -359,7 +359,7 @@
+     dest.offset[2] = Tk_Offset(Pix32, Blue);
+     dest.pixelPtr = (unsigned char *)ColorimageData(image);
+     Tk_PhotoSetSize(photo, width, height);
+-    Tk_PhotoPutBlock(photo, &dest, 0, 0, width, height);
++    Tk_PhotoPutBlock_NoComposite(photo, &dest, 0, 0, width, height);
+ }
+ 
+ /*
+--- blt2.4u/src/bltTable.c.orig	2000-06-13 02:21:51.000000000 +0200
++++ blt2.4u/src/bltTable.c	2003-06-17 00:10:30.000000000 +0200
+@@ -4841,7 +4841,7 @@
+     ClientData clientData;	/* Interpreter-specific data. */
+     Tcl_Interp *interp;
+     int argc;
+-    char **argv;
++    CONST84 char **argv;
+ {
+     TableInterpData *dataPtr = (TableInterpData *)clientData;
+     Blt_OpProc opProc;
+--- blt2.4u/src/bltTabnotebook.c.orig	2000-06-23 02:40:06.000000000 +0200
++++ blt2.4u/src/bltTabnotebook.c	2003-06-17 00:10:59.000000000 +0200
+@@ -5635,7 +5635,7 @@
+     ClientData clientData;	/* Main window associated with interpreter. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     Notebook *nbPtr;
+     Tk_Window tkwin;
+--- blt2.4u/src/bltTabset.c.orig	2000-06-23 02:40:06.000000000 +0200
++++ blt2.4u/src/bltTabset.c	2003-06-17 00:11:26.000000000 +0200
+@@ -5766,7 +5766,7 @@
+     ClientData clientData;	/* Main window associated with interpreter. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     Tabset *setPtr;
+     Tk_Window tkwin;
+--- blt2.4u/src/bltWinop.c.orig	2000-06-23 02:40:06.000000000 +0200
++++ blt2.4u/src/bltWinop.c	2003-06-17 00:12:09.000000000 +0200
+@@ -682,7 +682,7 @@
+ 	dest.offset[0] = src.offset[0];
+ 	dest.offset[1] = src.offset[1];
+ 	dest.offset[2] = src.offset[2];
+-	Tk_PhotoPutBlock(destPhoto, &dest, 0, 0, dest.width, dest.height);
++	Tk_PhotoPutBlock_NoComposite(destPhoto, &dest, 0, 0, dest.width, dest.height);
+ 	return TCL_OK;
+     }
+     if (filter == NULL) {
+@@ -841,7 +841,7 @@
+     ClientData clientData;	/* Main window of interpreter. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     Blt_OpProc opProc;
+     int result;
+--- blt2.4u/src/tkButton.c.orig	2000-06-23 03:40:48.000000000 +0200
++++ blt2.4u/src/tkButton.c	2003-06-17 00:12:50.000000000 +0200
+@@ -632,7 +632,7 @@
+ 				 * interpreter. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     return ButtonCreate(clientData, interp, argc, argv, TYPE_BUTTON);
+ }
+@@ -643,7 +643,7 @@
+ 				 * interpreter. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     return ButtonCreate(clientData, interp, argc, argv, TYPE_CHECK_BUTTON);
+ }
+@@ -654,7 +654,7 @@
+ 				 * interpreter. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     return ButtonCreate(clientData, interp, argc, argv, TYPE_LABEL);
+ }
+@@ -665,7 +665,7 @@
+ 				 * interpreter. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     return ButtonCreate(clientData, interp, argc, argv, TYPE_RADIO_BUTTON);
+ }
+--- blt2.4u/src/tkFrame.c.orig	2000-03-07 21:35:38.000000000 +0100
++++ blt2.4u/src/tkFrame.c	2003-06-17 00:17:01.000000000 +0200
+@@ -240,8 +240,6 @@
+ 
+ EXTERN Tk_Window TkCreateMainWindow _ANSI_ARGS_((Tcl_Interp * interp, 
+ 	char * screenName, char * baseName));
+-EXTERN void TkSetClassProcs _ANSI_ARGS_((Tk_Window tkwin, void *procs, 
+-	ClientData instanceData));
+ EXTERN void TkpSetMainMenubar _ANSI_ARGS_((Tcl_Interp * interp, Tk_Window tkwin,
+ 	char * menuName));
+ EXTERN int TkpUseWindow _ANSI_ARGS_((Tcl_Interp * interp, Tk_Window tkwin, 
+@@ -274,7 +272,7 @@
+ 				 * interpreter. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     return TkCreateFrame(clientData, interp, argc, argv, 0, (char *)NULL);
+ }
+@@ -285,7 +283,7 @@
+ 				 * interpreter. */
+     Tcl_Interp *interp;		/* Current interpreter. */
+     int argc;			/* Number of arguments. */
+-    char **argv;		/* Argument strings. */
++    CONST84 char **argv;	/* Argument strings. */
+ {
+     return TkCreateFrame(clientData, interp, argc, argv, 1, (char *)NULL);
+ }
+@@ -497,7 +495,7 @@
+     /*
+      * Store backreference to frame widget in window structure.
+      */
+-    TkSetClassProcs(new, NULL, (ClientData)framePtr);
++    Tk_SetClassProcs(new, NULL, (ClientData)framePtr);
+ #endif
+ 
+     mask = ExposureMask | StructureNotifyMask | FocusChangeMask;
+--- blt2.4u/src/bltTed.c.orig	2000-05-25 23:40:57.000000000 +0200
++++ blt2.4u/src/bltTed.c	2003-06-17 00:13:40.000000000 +0200
+@@ -1813,7 +1813,7 @@
+     ClientData clientData;	/* Thread-specific data. */
+     Tcl_Interp *interp;
+     int argc;
+-    char **argv;
++    CONST84 char **argv;
+ {
+     Blt_OpProc opProc;
+     int result;

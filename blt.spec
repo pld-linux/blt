@@ -6,7 +6,7 @@ Summary(ru):	Расширение набора tk, включая графические примитивы, менеджеры геом
 Summary(uk):	Розширення набору tk, включаючи граф╕чн╕ прим╕тиви, менеджери геометр╕╖ ╕ т.╕
 Name:		blt
 Version:	2.4u
-Release:	9
+Release:	10
 License:	MIT
 Group:		Development/Tools
 Source0:	ftp://ftp.scriptics.com/pub/tcl/blt/BLT%{version}.tar.gz
@@ -16,11 +16,12 @@ Patch1:		%{name}-paths.patch
 Patch2:		%{name}-excl.patch
 Patch3:		%{name}-acfix.patch
 Patch4:		%{name}-nolibnsl.patch
+Patch5:		%{name}-tcltk84.patch
 URL:		http://www.tcltk.com/blt/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	tcl-devel >= 8.3.2
-BuildRequires:	tk-devel >= 8.3.2
+BuildRequires:	tcl-devel >= 8.4.3
+BuildRequires:	tk-devel >= 8.4.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -116,6 +117,7 @@ Programas que demonstram as caracterМsticas do BLT.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 cp -f /usr/share/automake/config.* cf
