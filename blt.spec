@@ -9,7 +9,7 @@ Group(pl):	Programowanie/Narzêdzia
 Obsoletes:	blt-devel
 Source0:	ftp://ftp.tcltk.com/aa004735/pub/blt/BLT%{version}.tar.gz
 Patch0:		blt-prefix.patch
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 BLT is an extension to the Tk toolkit. BLT's most useful feature is the
