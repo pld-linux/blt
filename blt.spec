@@ -45,13 +45,13 @@ Requires:	%{name}-devel = %{version}
 %build
 LDFLAGS="-s"; export LDFLAGS
 %configure
-make 
+%{__make} 
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{etc,sbin}
 
-make install \
+%{__make} install \
 	exec_prefix=$RPM_BUILD_ROOT%{_prefix}
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	scriptdir=$RPM_BUILD_ROOT%{_libdir}/blt2.4 \
