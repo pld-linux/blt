@@ -43,7 +43,6 @@ Requires:	%{name}-devel = %{version}
 %patch -p1
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure
 %{__make} 
 
@@ -61,10 +60,7 @@ ln -sf libBLT.so.2.4 $RPM_BUILD_ROOT%{_libdir}/libBLT.so
 
 rm -f $RPM_BUILD_ROOT%{_mandir}/mann/{bitmap,tabset,watch}.n
 
-strip $RPM_BUILD_ROOT%{_bindir}/* || :
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/mann/*
-	README
+gzip -9nf README
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
