@@ -6,7 +6,7 @@ Summary(ru):	Расширение набора Tk, включая графические примитивы, менеджеры геом
 Summary(uk):	Розширення набору Tk, включаючи граф╕чн╕ прим╕тиви, менеджери геометр╕╖ ╕ т.╕
 Name:		blt
 Version:	2.4u
-Release:	14
+Release:	15
 License:	MIT
 Group:		Development/Tools
 Source0:	ftp://ftp.scriptics.com/pub/tcl/blt/BLT%{version}.tar.gz
