@@ -13,10 +13,10 @@ Source0:	ftp://tcltk.sourceforge.net/pub/tcltk/blt/BLT%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
 Patch2:		%{name}-excl.patch
+#BuildRequires:	autoconf
+#BuildRequires:	automake
 BuildRequires:	tcl-devel >= 8.3.2
 BuildRequires:	tk-devel >= 8.3.2
-#BuildRequires:	automake
-#BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,7 +38,7 @@ BLT jest rozszerzeniem Tk. Najbardziej u¿yteczn± funkcj± BLT jest
 rozszerzenie Tk o wiêksz± ilo¶æ kontrolek; oferuje równie¿ wiêcej
 funkcji zarz±dzania geometri± i innych poleceñ. Aby u¿ywaæ BLT nie
 trzeba ³ataæ plików ¼ród³owych Tcl ani Tk, trzeba jednak mieæ
-zainstalowanego Tcl/Tk. Je¶li programuje siê w Tcl/Tk, nale¿y
+zainstalowanego Tcl/Tk. Je¶li programuje siê w Tcl/Tk, lepiej
 zainstalowaæ BLT. Trzeba równie¿ zainstalowaæ Tcl/Tk.
 
 %description -l pt_BR
