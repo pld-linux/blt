@@ -6,7 +6,7 @@ Summary(pt_BR):	Componentes (widgets) e comandos extras para aplicações tk
 Summary(es):	Componentes (widgets) y comandos extras para aplicaciones tk
 Name:		blt
 Version:	2.4u
-Release:	6
+Release:	7
 License:	MIT
 Group:		Development/Tools
 Source0:	ftp://tcltk.sourceforge.net/pub/tcltk/blt/BLT%{version}.tar.gz
@@ -99,10 +99,10 @@ BLT demos and examples.
 %description demos -l pl
 Programy demonstracyjne i przyk³adowe do BLT.
 
-%description demo -l pt_BR
+%description demos -l pt_BR
 Programas que demonstram as características do BLT
 
-%description demo -l es
+%description demos -l es
 BLT Demonstrations
 
 %prep
