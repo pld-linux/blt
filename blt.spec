@@ -19,6 +19,15 @@ have Tcl/Tk installed in order to use BLT.
 If you are programming with the Tk toolkit, you should install BLT.
 You will need to have Tcl/Tk installed.
 
+%description
+BLT jest rozszerzeniem Tk. Najbardziej u¿yteczn± funkcj± BLT jest dostarczenie
+Tk wiêkszej ilo¶ci widgetów; oferuje równie¿ wiêcej mened¿erów geometrii i
+innych poleceñ. Aby u¿ywaæ BLT nie trzeba ³ataæ plików ¼ród³owych Tcl ani Tk,
+trzeba jednak mieæ zainstalowanego Tcl/Tk.
+
+Je¶li programuje siê w Tcl/tk, nale¿y zainstalowaæ BLT. Trzeba równie¿ 
+zainstalowaæ Tcl/Tk.
+
 %package devel
 
 %package static
