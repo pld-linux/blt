@@ -1,12 +1,12 @@
 Summary:	A Tk toolkit extension, including widgets, geometry managers, etc
-Summary(pl):	Rozszerzenie Tk umo©liwiajace operowanie na kontrolkach i wiele innych
-Summary(ru):	Расширение набора tk, включая графические примитивы, менеджеры геометрии и т.д.
-Summary(uk):	Розширення набору tk, включаючи граф╕чн╕ прим╕тиви, менеджери геометр╕╖ ╕ т.╕.
-Summary(pt_BR):	Componentes (widgets) e comandos extras para aplicaГУes tk
 Summary(es):	Componentes (widgets) y comandos extras para aplicaciones tk
+Summary(pl):	Rozszerzenie Tk umo©liwiajace operowanie na kontrolkach i wiele innych
+Summary(pt_BR):	Componentes (widgets) e comandos extras para aplicaГУes tk
+Summary(ru):	Расширение набора tk, включая графические примитивы, менеджеры геометрии и т.д
+Summary(uk):	Розширення набору tk, включаючи граф╕чн╕ прим╕тиви, менеджери геометр╕╖ ╕ т.╕
 Name:		blt
 Version:	2.4u
-Release:	7
+Release:	8
 License:	MIT
 Group:		Development/Tools
 Source0:	ftp://tcltk.sourceforge.net/pub/tcltk/blt/BLT%{version}.tar.gz
@@ -28,6 +28,11 @@ BLT, but you will need to have Tcl/Tk installed in order to use BLT.
 If you are programming with the Tk toolkit, you should install BLT.
 You will need to have Tcl/Tk installed.
 
+%description -l es
+BLT ofrece componentes (widgets) y comandos extras para programas tk.
+Incluye componentes grАficos, administraciСn de geometrМa de tablas y
+folders.
+
 %description -l pl
 BLT jest rozszerzeniem Tk. Najbardziej u©yteczn╠ funkcj╠ BLT jest
 dostarczenie Tk wiЙkszej ilo╤ci widgetСw; oferuje rСwnie© wiЙcej
@@ -35,6 +40,11 @@ mened©erСw geometrii i innych poleceЯ. Aby u©ywaФ BLT nie trzeba ЁataФ
 plikСw ╪rСdЁowych Tcl ani Tk, trzeba jednak mieФ zainstalowanego
 Tcl/Tk. Je╤li programuje siЙ w Tcl/tk, nale©y zainstalowaФ BLT. Trzeba
 rСwnie© zainstalowaФ Tcl/Tk.
+
+%description -l pt_BR
+O BLT fornece componentes (widgets) e comandos extras para programas
+tk. Ele inclui componentes grАficos, gerenciamento de geometria de
+tabelas e folders.
 
 %description -l ru
 BLT - это расширение набора Tk. Наиболее ценной особенностью BLT
@@ -50,16 +60,6 @@ BLT - це розширення набору Tk. Найб╕льш ц╕нною особлив╕стю BLT ╓
 менджер╕в геометр╕╖ та ╕нших команд. Сл╕д зазначити, що вам не треба
 зм╕нювати вих╕дних текст╕в Tcl або Tk для того, щоб використовувати
 BLT, але вам необх╕дно встановити Tcl/Tk для використання BLT.
-
-%description -l pt_BR
-O BLT fornece componentes (widgets) e comandos extras para programas
-tk. Ele inclui componentes grАficos, gerenciamento de geometria de
-tabelas e folders.
-
-%description -l es
-BLT ofrece componentes (widgets) y comandos extras para programas tk.
-Incluye componentes grАficos, administraciСn de geometrМa de tablas y
-folders.
 
 %package devel
 Summary:	BLT development package
@@ -96,14 +96,14 @@ Requires:	%{name} = %{version}
 %description demos
 BLT demos and examples.
 
+%description demos -l es
+BLT Demonstrations.
+
 %description demos -l pl
 Programy demonstracyjne i przykЁadowe do BLT.
 
 %description demos -l pt_BR
-Programas que demonstram as caracterМsticas do BLT
-
-%description demos -l es
-BLT Demonstrations
+Programas que demonstram as caracterМsticas do BLT.
 
 %prep
 %setup -q -n blt%{version}
@@ -113,7 +113,7 @@ BLT Demonstrations
 
 %build
 #aclocal
-#autoconf
+#%{__autoconf}
 %configure2_13
 %{__make}
 
@@ -138,8 +138,6 @@ cp -rf examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 
 rm -f html/Makefile* $RPM_BUILD_ROOT%{_libdir}/blt2.4/{NEWS,README,PROBLEMS}
 
-gzip -9nf README NEWS PROBLEMS
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -154,8 +152,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%doc README NEWS PROBLEMS html
 %attr(755,root,root) %{_libdir}/lib*[a-zA-Z].so
-%doc *.gz html
 %{_includedir}/blt.h
 %{_mandir}/mann/*
 
