@@ -1,9 +1,9 @@
 Summary:	A Tk toolkit extension, including widgets, geometry managers, etc
-Summary(es):	Componentes (widgets) y comandos extras para aplicaciones tk
+Summary(es):	Componentes (widgets) y comandos extras para aplicaciones Tk
 Summary(pl):	Rozszerzenie Tk umo©liwiaj╠ce operowanie na kontrolkach i wiele innych
-Summary(pt_BR):	Componentes (widgets) e comandos extras para aplicaГУes tk
-Summary(ru):	Расширение набора tk, включая графические примитивы, менеджеры геометрии и т.д
-Summary(uk):	Розширення набору tk, включаючи граф╕чн╕ прим╕тиви, менеджери геометр╕╖ ╕ т.╕
+Summary(pt_BR):	Componentes (widgets) e comandos extras para aplicaГУes Tk
+Summary(ru):	Расширение набора Tk, включая графические примитивы, менеджеры геометрии и т.д
+Summary(uk):	Розширення набору Tk, включаючи граф╕чн╕ прим╕тиви, менеджери геометр╕╖ ╕ т.╕
 Name:		blt
 Version:	2.4u
 Release:	11
@@ -35,7 +35,7 @@ If you are programming with the Tk toolkit, you should install BLT.
 You will need to have Tcl/Tk installed.
 
 %description -l es
-BLT ofrece componentes (widgets) y comandos extras para programas tk.
+BLT ofrece componentes (widgets) y comandos extras para programas Tk.
 Incluye componentes grАficos, administraciСn de geometrМa de tablas y
 folders.
 
@@ -49,7 +49,7 @@ zainstalowaФ BLT. Trzeba rСwnie© zainstalowaФ Tcl/Tk.
 
 %description -l pt_BR
 O BLT fornece componentes (widgets) e comandos extras para programas
-tk. Ele inclui componentes grАficos, gerenciamento de geometria de
+Tk. Ele inclui componentes grАficos, gerenciamento de geometria de
 tabelas e folders.
 
 %description -l ru
