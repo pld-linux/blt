@@ -1,0 +1,26 @@
+--- blt2.4u/src/bltUnixPipe.c.excl	Tue Feb 29 15:48:00 2000
++++ blt2.4u/src/bltUnixPipe.c	Wed Dec  6 17:58:43 2000
+@@ -27,6 +27,7 @@
+ 
+ #include "bltInt.h"
+ #include <fcntl.h>
++#include <limits.h>
+ #include <signal.h>
+ 
+ #include "bltWait.h"
+@@ -118,12 +119,12 @@
+ CreateTempFile(contents)
+     char *contents;		/* String to write into temp file, or NULL. */
+ {
+-    char fileName[L_tmpnam];
++    char fileName[LINE_MAX];
+     int fd;
+     size_t length = (contents == NULL) ? 0 : strlen(contents);
+ 
+-    tmpnam(fileName);
+-    fd = OpenFile(fileName, O_RDWR | O_CREAT | O_TRUNC);
++    strcpy(fileName, "/tmp/bltXXXXXX");
++    fd = mkstemp(fileName);
+     unlink(fileName);
+ 
+     if ((fd >= 0) && (length > 0)) {
