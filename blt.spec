@@ -73,6 +73,7 @@ BLT demos and examples.
 %patch2 -p1
 
 %build
+autoconf
 %configure
 %{__make} 
 
