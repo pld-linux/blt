@@ -10,6 +10,7 @@ Release:	9
 License:	MIT
 Group:		Development/Tools
 Source0:	ftp://ftp.scriptics.com/pub/tcl/blt/BLT%{version}.tar.gz
+# Source0-md5:	bad9f33789a6aac390cebba819ee6b38
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
 Patch2:		%{name}-excl.patch
@@ -127,7 +128,8 @@ cp -f /usr/share/automake/config.* cf
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_prefix}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 ln -sf libBLT24.so $RPM_BUILD_ROOT%{_libdir}/libBLT.so
 ln -sf libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so
