@@ -99,15 +99,11 @@ Biblioteki statyczne BLT.
 Summary:	BLT demos and examples
 Summary(pl):	Dema i przyk³ady do BLT
 Summary(pt_BR):	Programas que demonstram as características do BLT
-Summary(es):	BLT Demonstrations
 Group:		Development/Tools
 Requires:	%{name} = %{version}-%{release}
 
 %description demos
 BLT demos and examples.
-
-%description demos -l es
-BLT Demonstrations.
 
 %description demos -l pl
 Programy demonstracyjne i przyk³adowe do BLT.
