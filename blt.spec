@@ -1,8 +1,12 @@
 Summary:	A Tk toolkit extension, including widgets, geometry managers, etc
 Summary(pl):	Rozszerzenie Tk umo©liwiajace operowanie na kontrolkach i wiele innych
+Summary(ru):	Расширение набора tk, включая графические примитивы, менеджеры геометрии и т.д.
+Summary(uk):	Розширення набору tk, включаючи граф╕чн╕ прим╕тиви, менеджери геометр╕╖ ╕ т.╕.
+Summary(pt_BR):	Componentes (widgets) e comandos extras para aplicaГУes tk
+Summary(es):	Componentes (widgets) y comandos extras para aplicaciones tk
 Name:		blt
 Version:	2.4u
-Release:	5
+Release:	6
 License:	MIT
 Group:		Development/Tools
 Group(de):	Entwicklung/Werkzeuge
@@ -14,8 +18,8 @@ Patch1:		%{name}-paths.patch
 Patch2:		%{name}-excl.patch
 BuildRequires:	tcl-devel >= 8.3.2
 BuildRequires:	tk-devel >= 8.3.2
-BuildRequires:	automake
-BuildRequires:	autoconf
+#BuildRequires:	automake
+#BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,6 +38,29 @@ mened©erСw geometrii i innych poleceЯ. Aby u©ywaФ BLT nie trzeba ЁataФ
 plikСw ╪rСdЁowych Tcl ani Tk, trzeba jednak mieФ zainstalowanego
 Tcl/Tk. Je╤li programuje siЙ w Tcl/tk, nale©y zainstalowaФ BLT. Trzeba
 rСwnie© zainstalowaФ Tcl/Tk.
+
+%description -l ru
+BLT - это расширение набора Tk. Наиболее ценной особенностью BLT является
+предоставление бОльшего набора примитивов для Tk, но он также предоставляет
+больше менеджеров геометрии и прочих команд. Следует отметить, что вам не
+надо изменять исходных текстов Tcl или Tk для того, чтобы использовать
+BLT, но вам необходимо установить Tcl/Tk для использования BLT.
+
+%description -l uk
+BLT - це розширення набору Tk. Найб╕льш ц╕нною особлив╕стю BLT ╓ надання
+б╕льшого набору прим╕тив╕в для Tk, але в╕н також нада╓ б╕льше менджер╕в
+геометр╕╖ та ╕нших команд. Сл╕д зазначити, що вам не треба зм╕нювати
+вих╕дних текст╕в Tcl або Tk для того, щоб використовувати BLT, але вам
+необх╕дно встановити Tcl/Tk для використання BLT.
+
+%description -l pt_BR
+O BLT fornece componentes (widgets) e comandos extras para programas tk. Ele
+inclui componentes grАficos, gerenciamento de geometria de tabelas e folders.
+
+%description -l es
+BLT ofrece componentes (widgets) y comandos extras para programas
+tk. Incluye componentes grАficos, administraciСn de geometrМa de
+tablas y folders.
 
 %package devel
 Summary:	BLT development package
@@ -68,6 +95,8 @@ Biblioteki statyczne BLT.
 %package demos
 Summary:	BLT demos and examples
 Summary(pl):	Dema i przykЁady do BLT
+Summary(pt_BR):	Programas que demonstram as caracterМsticas do BLT
+Summary(es):	BLT Demonstrations
 Group:		Development/Tools
 Group(de):	Entwicklung/Werkzeuge
 Group(fr):	Development/Outils
@@ -80,6 +109,12 @@ BLT demos and examples.
 %description demos -l pl
 Programy demonstracyjne i przykЁadowe do BLT.
 
+%description -l pt_BR demo
+Programas que demonstram as caracterМsticas do BLT
+
+%description -l es demo
+BLT Demonstrations
+
 %prep
 %setup -q -n blt%{version}
 %patch0 -p1
@@ -87,9 +122,9 @@ Programy demonstracyjne i przykЁadowe do BLT.
 %patch2 -p1
 
 %build
-aclocal
-autoconf
-%configure
+#aclocal
+#autoconf
+%configure2_13
 %{__make} 
 
 %install
