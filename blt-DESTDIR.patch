@@ -1,17 +1,16 @@
-diff -Nur blt2.4u.orig/Makefile.in blt2.4u/Makefile.in
---- blt2.4u.orig/Makefile.in	Thu May 18 02:00:14 2000
-+++ blt2.4u/Makefile.in	Wed Jan  3 19:41:25 2001
-@@ -45,16 +45,16 @@
+diff -Nru blt2.4u/Makefile.in blt2.4u.new/Makefile.in
+--- blt2.4u/Makefile.in	Thu May 18 02:00:14 2000
++++ blt2.4u.new/Makefile.in	Fri Jan  5 08:48:53 2001
+@@ -45,16 +45,14 @@
  
  install-dirs:
  	@for i in $(instdirs) ; do \
 -	    if test ! -d $$i ; then \
 -		echo " mkdir $$i" ; \
 -		mkdir $$i ; \
-+	    if test ! -d $(DESTDIR)$$i ; then \
-+		echo " mkdir $(DESTDIR)$$i" ; \
-+		mkdir $(DESTDIR)$$i ; \
- 	    fi ; \
+-	    fi ; \
++		echo " mkdir -p $(DESTDIR)$$i" ; \
++		mkdir -p $(DESTDIR)$$i ; \
          done
  
  install-readme:
@@ -24,9 +23,9 @@ diff -Nur blt2.4u.orig/Makefile.in blt2.4u/Makefile.in
  
  clean:
  	(cd src; $(MAKE) clean)
-diff -Nur blt2.4u.orig/demos/Makefile.in blt2.4u/demos/Makefile.in
---- blt2.4u.orig/demos/Makefile.in	Fri Jun 23 02:40:05 2000
-+++ blt2.4u/demos/Makefile.in	Wed Jan  3 19:41:25 2001
+diff -Nru blt2.4u/demos/Makefile.in blt2.4u.new/demos/Makefile.in
+--- blt2.4u/demos/Makefile.in	Fri Jun 23 02:40:05 2000
++++ blt2.4u.new/demos/Makefile.in	Fri Jan  5 08:46:46 2001
 @@ -46,31 +46,31 @@
  
  inst-scripts: 
@@ -62,19 +61,19 @@ diff -Nur blt2.4u.orig/demos/Makefile.in blt2.4u/demos/Makefile.in
  inst-dirs:
  	@for i in $(instdirs) ; do \
 -	    if test -d "$$i" ; then : ; else mkdir "$$i" ; fi ; \
-+	    if test -d "$(DESTDIR)$$i" ; then : ; else mkdir "$(DESTDIR)$$i" ; fi ; \
++	    mkdir -p "$(DESTDIR)$$i" ; \
          done
  
  clean:
-diff -Nur blt2.4u.orig/library/Makefile.in blt2.4u/library/Makefile.in
---- blt2.4u.orig/library/Makefile.in	Fri May  5 06:49:36 2000
-+++ blt2.4u/library/Makefile.in	Wed Jan  3 19:41:25 2001
+diff -Nru blt2.4u/library/Makefile.in blt2.4u.new/library/Makefile.in
+--- blt2.4u/library/Makefile.in	Fri May  5 06:49:36 2000
++++ blt2.4u.new/library/Makefile.in	Fri Jan  5 08:47:13 2001
 @@ -32,21 +32,21 @@
  
  mkdirs:
  	@for i in $(instdirs) ; do \
 -	    if test -d $$i ; then : ; else mkdir $$i ; fi ; \
-+	    if test -d $(DESTDIR)$$i ; then : ; else mkdir $(DESTDIR)$$i ; fi ; \
++	    mkdir -p $(DESTDIR)$$i ; \
          done
  
  dragdrop: mkdirs
@@ -95,10 +94,10 @@ diff -Nur blt2.4u.orig/library/Makefile.in blt2.4u/library/Makefile.in
  
  pkgIndex: 
  	rm -f pkgIndex.tcl
-diff -Nur blt2.4u.orig/man/Makefile.in blt2.4u/man/Makefile.in
---- blt2.4u.orig/man/Makefile.in	Tue Feb  8 22:40:26 2000
-+++ blt2.4u/man/Makefile.in	Wed Jan  3 19:43:14 2001
-@@ -28,13 +28,13 @@
+diff -Nru blt2.4u/man/Makefile.in blt2.4u.new/man/Makefile.in
+--- blt2.4u/man/Makefile.in	Tue Feb  8 22:40:26 2000
++++ blt2.4u.new/man/Makefile.in	Fri Jan  5 08:47:44 2001
+@@ -28,14 +28,12 @@
  
  install-manuals: $(MANPAGES)
  	for i in *.n ; do \
@@ -110,15 +109,15 @@ diff -Nur blt2.4u.orig/man/Makefile.in blt2.4u/man/Makefile.in
  	@for i in $(instdirs) ; do \
 -	    if test ! -d $$i ; then \
 -		mkdir $$i ; \
-+	    if test ! -d $(DESTDIR)$$i ; then \
+-	    fi ; \
 +		mkdir -p $(DESTDIR)$$i ; \
- 	    fi ; \
  	done
  
-diff -Nur blt2.4u.orig/src/Makefile.in blt2.4u/src/Makefile.in
---- blt2.4u.orig/src/Makefile.in	Fri May  5 06:49:36 2000
-+++ blt2.4u/src/Makefile.in	Wed Jan  3 19:41:25 2001
-@@ -143,30 +143,30 @@
+ .SUFFIXES: .n .man
+diff -Nru blt2.4u/src/Makefile.in blt2.4u.new/src/Makefile.in
+--- blt2.4u/src/Makefile.in	Fri May  5 06:49:36 2000
++++ blt2.4u.new/src/Makefile.in	Fri Jan  5 08:48:09 2001
+@@ -143,30 +143,28 @@
  install: install_dirs install_lib install_demo install_headers
  
  install_demo: $(bltwish) $(bltsh)
@@ -147,10 +146,9 @@ diff -Nur blt2.4u.orig/src/Makefile.in blt2.4u/src/Makefile.in
 -	    if test ! -d $$i ; then \
 -		echo " mkdir $$i" ; \
 -		mkdir $$i ; \
-+	    if test ! -d $(DESTDIR)$$i ; then \
-+		echo " mkdir $(DESTDIR)$$i" ; \
-+		mkdir $(DESTDIR)$$i ; \
- 	    fi ; \
+-	    fi ; \
++		echo " mkdir -p $(DESTDIR)$$i" ; \
++		mkdir -p $(DESTDIR)$$i ; \
          done
  
  install_headers:
@@ -162,10 +160,10 @@ diff -Nur blt2.4u.orig/src/Makefile.in blt2.4u/src/Makefile.in
  	done
  
  lint:
-diff -Nur blt2.4u.orig/src/shared/Makefile.in blt2.4u/src/shared/Makefile.in
---- blt2.4u.orig/src/shared/Makefile.in	Fri Jun 23 02:40:06 2000
-+++ blt2.4u/src/shared/Makefile.in	Wed Jan  3 19:41:25 2001
-@@ -124,18 +124,18 @@
+diff -Nru blt2.4u/src/shared/Makefile.in blt2.4u.new/src/shared/Makefile.in
+--- blt2.4u/src/shared/Makefile.in	Fri Jun 23 02:40:06 2000
++++ blt2.4u.new/src/shared/Makefile.in	Fri Jan  5 08:48:30 2001
+@@ -124,19 +124,17 @@
  install: install_dirs install_lib install_demo
  
  install_demo: $(bltwish)
@@ -185,9 +183,9 @@ diff -Nur blt2.4u.orig/src/shared/Makefile.in blt2.4u/src/shared/Makefile.in
 -	    if test ! -d $$i ; then \
 -		echo " mkdir $$i" ; \
 -		mkdir $$i ; \
-+	    if test ! -d $(DESTDIR)$$i ; then \
+-	    fi ; \
 +		echo " mkdir $(DESTDIR)$$i" ; \
-+		mkdir $(DESTDIR)$$i ; \
- 	    fi ; \
++		mkdir -p $(DESTDIR)$$i ; \
          done
  
+ clean:
