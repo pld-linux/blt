@@ -1,12 +1,12 @@
 Summary:	A Tk toolkit extension, including widgets, geometry managers, etc
-Summary(es):	Componentes (widgets) y comandos extras para aplicaciones tk
+Summary(es):	Componentes (widgets) y comandos extras para aplicaciones Tk
 Summary(pl):	Rozszerzenie Tk umo¿liwiaj±ce operowanie na kontrolkach i wiele innych
-Summary(pt_BR):	Componentes (widgets) e comandos extras para aplicações tk
-Summary(ru):	òÁÓÛÉÒÅÎÉÅ ÎÁÂÏÒÁ tk, ×ËÌÀÞÁÑ ÇÒÁÆÉÞÅÓËÉÅ ÐÒÉÍÉÔÉ×Ù, ÍÅÎÅÄÖÅÒÙ ÇÅÏÍÅÔÒÉÉ É Ô.Ä
-Summary(uk):	òÏÚÛÉÒÅÎÎÑ ÎÁÂÏÒÕ tk, ×ËÌÀÞÁÀÞÉ ÇÒÁÆ¦ÞÎ¦ ÐÒÉÍ¦ÔÉ×É, ÍÅÎÅÄÖÅÒÉ ÇÅÏÍÅÔÒ¦§ ¦ Ô.¦
+Summary(pt_BR):	Componentes (widgets) e comandos extras para aplicações Tk
+Summary(ru):	òÁÓÛÉÒÅÎÉÅ ÎÁÂÏÒÁ Tk, ×ËÌÀÞÁÑ ÇÒÁÆÉÞÅÓËÉÅ ÐÒÉÍÉÔÉ×Ù, ÍÅÎÅÄÖÅÒÙ ÇÅÏÍÅÔÒÉÉ É Ô.Ä
+Summary(uk):	òÏÚÛÉÒÅÎÎÑ ÎÁÂÏÒÕ Tk, ×ËÌÀÞÁÀÞÉ ÇÒÁÆ¦ÞÎ¦ ÐÒÉÍ¦ÔÉ×É, ÍÅÎÅÄÖÅÒÉ ÇÅÏÍÅÔÒ¦§ ¦ Ô.¦
 Name:		blt
 Version:	2.4u
-Release:	9
+Release:	10
 License:	MIT
 Group:		Development/Tools
 Source0:	ftp://ftp.scriptics.com/pub/tcl/blt/BLT%{version}.tar.gz
@@ -19,8 +19,8 @@ Patch4:		%{name}-nolibnsl.patch
 URL:		http://www.tcltk.com/blt/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	tcl-devel >= 8.3.2
-BuildRequires:	tk-devel >= 8.3.2
+BuildRequires:	tcl-devel >= 8.3.4-10
+BuildRequires:	tk-devel >= 8.3.4-5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -33,7 +33,7 @@ If you are programming with the Tk toolkit, you should install BLT.
 You will need to have Tcl/Tk installed.
 
 %description -l es
-BLT ofrece componentes (widgets) y comandos extras para programas tk.
+BLT ofrece componentes (widgets) y comandos extras para programas Tk.
 Incluye componentes gráficos, administración de geometría de tablas y
 folders.
 
@@ -47,7 +47,7 @@ zainstalowaæ BLT. Trzeba równie¿ zainstalowaæ Tcl/Tk.
 
 %description -l pt_BR
 O BLT fornece componentes (widgets) e comandos extras para programas
-tk. Ele inclui componentes gráficos, gerenciamento de geometria de
+Tk. Ele inclui componentes gráficos, gerenciamento de geometria de
 tabelas e folders.
 
 %description -l ru
@@ -121,12 +121,11 @@ Programas que demonstram as características do BLT.
 cp -f /usr/share/automake/config.* cf
 %{__autoconf}
 %configure
-
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_prefix}
+install -d $RPM_BUILD_ROOT{%{_prefix},%{_examplesdir}/%{name}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -137,15 +136,12 @@ ln -sf libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so
 # use dynamically linked binaries
 mv -f $RPM_BUILD_ROOT%{_bindir}/bltsh24 $RPM_BUILD_ROOT%{_bindir}/bltsh
 mv -f $RPM_BUILD_ROOT%{_bindir}/bltwish24 $RPM_BUILD_ROOT%{_bindir}/bltwish
-
-# bitmap.n is provided by tk-devel
-rm -f $RPM_BUILD_ROOT%{_mandir}/mann/bitmap.n
-
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 mv -f $RPM_BUILD_ROOT%{_libdir}/blt2.4/demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 cp -rf examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 
 rm -f html/Makefile* $RPM_BUILD_ROOT%{_libdir}/blt2.4/{NEWS,README,PROBLEMS}
+# bitmap.n is provided by tk-devel
+rm -f $RPM_BUILD_ROOT%{_mandir}/mann/bitmap.n
 
 %clean
 rm -rf $RPM_BUILD_ROOT
