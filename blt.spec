@@ -10,6 +10,7 @@ Release:	9
 License:	MIT
 Group:		Development/Tools
 Source0:	ftp://ftp.scriptics.com/pub/tcl/blt/BLT%{version}.tar.gz
+# Source0-md5:	bad9f33789a6aac390cebba819ee6b38
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
 Patch2:		%{name}-excl.patch
