@@ -14,6 +14,7 @@ Patch1:		%{name}-paths.patch
 Patch2:		%{name}-excl.patch
 BuildRequires:	tcl-devel >= 8.3.2
 BuildRequires:	tk-devel >= 8.3.2
+BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
