@@ -18,7 +18,7 @@ Patch3:		%{name}-acfix.patch
 Patch4:		%{name}-nolibnsl.patch
 Patch5:		%{name}-tcltk84.patch
 Patch6:		%{name}-norpath.patch
-URL:		http://www.tcltk.com/blt/
+URL:		http://incrtcl.sourceforge.net/blt/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	tcl-devel >= 8.4.6
