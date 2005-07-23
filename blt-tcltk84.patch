@@ -166,17 +166,6 @@
  {
      Hierbox *hboxPtr;
      Tk_Window tkwin;
---- blt2.4u/src/bltHiertable.c.orig	2000-06-23 02:40:05.000000000 +0200
-+++ blt2.4u/src/bltHiertable.c	2003-06-17 00:06:37.000000000 +0200
-@@ -4865,7 +4865,7 @@
-     ClientData clientData;	/* Main window associated with interpreter. */
-     Tcl_Interp *interp;		/* Current interpreter. */
-     int argc;			/* Number of arguments. */
--    char **argv;		/* Argument strings. */
-+    CONST84 char **argv;	/* Argument strings. */
- {
-     Hiertable *htabPtr;
-     Tcl_CmdInfo cmdInfo;
 --- blt2.4u/src/bltHtext.c.orig	2000-05-25 23:40:56.000000000 +0200
 +++ blt2.4u/src/bltHtext.c	2003-06-17 00:08:30.000000000 +0200
 @@ -2222,8 +2222,8 @@
@@ -312,15 +301,6 @@
  }
 --- blt2.4u/src/tkFrame.c.orig	2000-03-07 21:35:38.000000000 +0100
 +++ blt2.4u/src/tkFrame.c	2003-06-17 00:17:01.000000000 +0200
-@@ -240,8 +240,6 @@
- 
- EXTERN Tk_Window TkCreateMainWindow _ANSI_ARGS_((Tcl_Interp * interp, 
- 	char * screenName, char * baseName));
--EXTERN void TkSetClassProcs _ANSI_ARGS_((Tk_Window tkwin, void *procs, 
--	ClientData instanceData));
- EXTERN void TkpSetMainMenubar _ANSI_ARGS_((Tcl_Interp * interp, Tk_Window tkwin,
- 	char * menuName));
- EXTERN int TkpUseWindow _ANSI_ARGS_((Tcl_Interp * interp, Tk_Window tkwin, 
 @@ -274,7 +272,7 @@
  				 * interpreter. */
      Tcl_Interp *interp;		/* Current interpreter. */
@@ -339,15 +319,6 @@
  {
      return TkCreateFrame(clientData, interp, argc, argv, 1, (char *)NULL);
  }
-@@ -497,7 +495,7 @@
-     /*
-      * Store backreference to frame widget in window structure.
-      */
--    TkSetClassProcs(new, NULL, (ClientData)framePtr);
-+    Tk_SetClassProcs(new, NULL, (ClientData)framePtr);
- #endif
- 
-     mask = ExposureMask | StructureNotifyMask | FocusChangeMask;
 --- blt2.4u/src/bltTed.c.orig	2000-05-25 23:40:57.000000000 +0200
 +++ blt2.4u/src/bltTed.c	2003-06-17 00:13:40.000000000 +0200
 @@ -1813,7 +1813,7 @@

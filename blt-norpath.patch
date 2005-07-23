@@ -1,14 +1,11 @@
---- blt2.4u/configure.in.orig	2003-06-17 20:39:16.000000000 +0200
-+++ blt2.4u/configure.in	2003-06-17 20:41:39.000000000 +0200
-@@ -1055,9 +1055,9 @@
-   *-linux*)
+--- blt2.4z/configure.in.orig	2005-07-23 19:20:23.000000000 +0200
++++ blt2.4z/configure.in	2005-07-23 19:22:51.000000000 +0200
+@@ -1178,7 +1178,7 @@
      SHLIB_CFLAGS="-fPIC"
      SHLIB_LD="${CC}"
--    SHLIB_LD_FLAGS="-rdynamic -shared -Wl,-E -Wl,-soname,${libName}.so -Wl,-rpath,${LD_RUN_PATH}"
-+    SHLIB_LD_FLAGS="-rdynamic -shared -Wl,-E -Wl,-soname,${libName}.so"
+     SHLIB_LD_FLAGS='-rdynamic -shared -Wl,-E -Wl,-soname,$@'
+-    LD_RUN_PATH="-Wl,-rpath,${loader_run_path}"
++    LD_RUN_PATH=""
      
--    LDFLAGS="-Wl,-rpath,${LD_RUN_PATH}"
-+    LDFLAGS=""
+     LDFLAGS=""
      EXTRA_LIB_SPECS="-ldl"
-     ;;
-   

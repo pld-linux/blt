@@ -17,7 +17,7 @@
      int fd;
      size_t length = (contents == NULL) ? 0 : strlen(contents);
  
--    tmpnam(fileName);
+-    mkstemp(fileName);
 -    fd = OpenFile(fileName, O_RDWR | O_CREAT | O_TRUNC);
 +    strcpy(fileName, "/tmp/bltXXXXXX");
 +    fd = mkstemp(fileName);

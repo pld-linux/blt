@@ -11,9 +11,9 @@
  [$2]
  EOF
  eval $ac_link
---- blt2.4u/configure.in.orig	Fri Jun 23 02:40:05 2000
-+++ blt2.4u/configure.in	Tue Mar  4 20:32:04 2003
-@@ -58,6 +58,9 @@
+--- blt2.4z/configure.in.orig	2002-10-04 07:33:23.000000000 +0200
++++ blt2.4z/configure.in	2005-07-23 19:08:32.000000000 +0200
+@@ -65,6 +65,9 @@
  AC_ARG_WITH(gnu_ld,	[  --with-gnu-ld           Use GNU linker],
    blt_with_gnu_ld="yes")
  
@@ -21,9 +21,9 @@
 +AC_PROG_CPP
 +AC_PROG_EGREP
  AC_CANONICAL_SYSTEM
+ AC_PREFIX_PROGRAM(wish)
  
- # -----------------------------------------------------------------------
-@@ -87,29 +90,9 @@
+@@ -95,24 +98,6 @@
  #  4. default to cc
  #
  
@@ -44,12 +44,20 @@
 -if test "x${CC}" = "x" ; then
 -  CC=cc
 -fi
--AC_MSG_RESULT([$CC])
+-
+ case $target in
+   *-*-cygwin*|*-*-mingw*)
+     if test "${blt_enable_cygwin}" = "no" ; then
+@@ -121,12 +106,8 @@
+     ;;
+ esac
  
+-AC_MSG_RESULT([$CC])
+-
  unset blt_cv_prog_cc
  AC_CACHE_VAL(blt_cv_prog_cc, blt_cv_prog_cc=$CC)
 -AC_SUBST(CC)
 -AC_PROG_CPP
  if test "x${GCC}" != "x" ; then
-   BLT_HAVE_GCC="yes"
+   blt_have_gcc="yes"
  else

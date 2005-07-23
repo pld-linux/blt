@@ -5,12 +5,12 @@ Summary(pt_BR):	Componentes (widgets) e comandos extras para aplicaГУes Tk
 Summary(ru):	Расширение набора Tk, включая графические примитивы, менеджеры геометрии и т.д
 Summary(uk):	Розширення набору Tk, включаючи граф╕чн╕ прим╕тиви, менеджери геометр╕╖ ╕ т.╕
 Name:		blt
-Version:	2.4u
-Release:	15
+Version:	2.4z
+Release:	1
 License:	MIT
 Group:		Development/Tools
-Source0:	ftp://ftp.scriptics.com/pub/tcl/blt/BLT%{version}.tar.gz
-# Source0-md5:	bad9f33789a6aac390cebba819ee6b38
+Source0:	http://dl.sourceforge.net/blt/BLT%{version}.tar.gz
+# Source0-md5:	aa2ed73080f3005d9c2a3b5e57ab1eff
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
 Patch2:		%{name}-excl.patch
@@ -18,7 +18,7 @@ Patch3:		%{name}-acfix.patch
 Patch4:		%{name}-nolibnsl.patch
 Patch5:		%{name}-tcltk84.patch
 Patch6:		%{name}-norpath.patch
-URL:		http://incrtcl.sourceforge.net/blt/
+URL:		http://blt.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	tcl-devel >= 8.4.6
@@ -132,10 +132,10 @@ cp -f /usr/share/automake/config.* cf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_prefix},%{_examplesdir}/%{name}-%{release}}
+install -d $RPM_BUILD_ROOT{%{_prefix},%{_examplesdir}/%{name}-%{version},%{_mandir}}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
+	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	libdir=%{_libdir}
 
 ln -sf libBLT24.so $RPM_BUILD_ROOT%{_libdir}/libBLT.so
@@ -148,8 +148,8 @@ mv -f $RPM_BUILD_ROOT%{_bindir}/bltwish24 $RPM_BUILD_ROOT%{_bindir}/bltwish
 # bitmap.n is provided by tk-devel
 rm -f $RPM_BUILD_ROOT%{_mandir}/mann/bitmap.n
 
-mv -f $RPM_BUILD_ROOT%{_ulibdir}/blt2.4/demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{release}
-cp -rf examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{release}
+mv -f $RPM_BUILD_ROOT%{_ulibdir}/blt2.4/demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -rf examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 rm -f html/Makefile* $RPM_BUILD_ROOT%{_ulibdir}/blt2.4/{NEWS,README,PROBLEMS}
 
@@ -172,6 +172,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libBLT*[A-Za-z].so
 %{_includedir}/blt*.h
 %{_mandir}/mann/*
+%{_mandir}/man3/*
 
 %files static
 %defattr(644,root,root,755)
@@ -179,4 +180,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files demos
 %defattr(644,root,root,755)
-%{_examplesdir}/%{name}-%{release}
+%{_examplesdir}/%{name}-%{version}
