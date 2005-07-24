@@ -18,6 +18,9 @@ Patch3:		%{name}-acfix.patch
 Patch4:		%{name}-nolibnsl.patch
 Patch5:		%{name}-tcltk84.patch
 Patch6:		%{name}-norpath.patch
+Patch7:		%{name}-tcl85.patch
+Patch8:		%{name}-decl.patch
+Patch9:		%{name}-link.patch
 URL:		http://blt.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -120,6 +123,9 @@ Programas que demonstram as características do BLT.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
+%patch8 -p1
+%patch9 -p1
 
 %build
 cp -f /usr/share/automake/config.* cf
