@@ -1,9 +1,9 @@
 Summary:	A Tk toolkit extension, including widgets, geometry managers, etc
-Summary(es):	Componentes (widgets) y comandos extras para aplicaciones Tk
-Summary(pl):	Rozszerzenie Tk umo©liwiaj╠ce operowanie na kontrolkach i wiele innych
-Summary(pt_BR):	Componentes (widgets) e comandos extras para aplicaГУes Tk
-Summary(ru):	Расширение набора Tk, включая графические примитивы, менеджеры геометрии и т.д
-Summary(uk):	Розширення набору Tk, включаючи граф╕чн╕ прим╕тиви, менеджери геометр╕╖ ╕ т.╕
+Summary(es.UTF-8):   Componentes (widgets) y comandos extras para aplicaciones Tk
+Summary(pl.UTF-8):   Rozszerzenie Tk umoе╪liwiajд┘ce operowanie na kontrolkach i wiele innych
+Summary(pt_BR.UTF-8):   Componentes (widgets) e comandos extras para aplicaц╖ц╣es Tk
+Summary(ru.UTF-8):   п═п╟я│я┬п╦я─п╣п╫п╦п╣ п╫п╟п╠п╬я─п╟ Tk, п╡п╨п╩я▌я┤п╟я▐ пЁя─п╟я└п╦я┤п╣я│п╨п╦п╣ п©я─п╦п╪п╦я┌п╦п╡я▀, п╪п╣п╫п╣п╢п╤п╣я─я▀ пЁп╣п╬п╪п╣я┌я─п╦п╦ п╦ я┌.п╢
+Summary(uk.UTF-8):   п═п╬п╥я┬п╦я─п╣п╫п╫я▐ п╫п╟п╠п╬я─я┐ Tk, п╡п╨п╩я▌я┤п╟я▌я┤п╦ пЁя─п╟я└я√я┤п╫я√ п©я─п╦п╪я√я┌п╦п╡п╦, п╪п╣п╫п╣п╢п╤п╣я─п╦ пЁп╣п╬п╪п╣я┌я─я√я≈ я√ я┌.я√
 Name:		blt
 Version:	2.4z
 Release:	1
@@ -41,78 +41,78 @@ BLT, but you will need to have Tcl/Tk installed in order to use BLT.
 If you are programming with the Tk toolkit, you should install BLT.
 You will need to have Tcl/Tk installed.
 
-%description -l es
+%description -l es.UTF-8
 BLT ofrece componentes (widgets) y comandos extras para programas Tk.
-Incluye componentes grАficos, administraciСn de geometrМa de tablas y
+Incluye componentes grц║ficos, administraciцЁn de geometrц╜a de tablas y
 folders.
 
-%description -l pl
-BLT jest rozszerzeniem Tk. Najbardziej u©yteczn╠ funkcj╠ BLT jest
-rozszerzenie Tk o wiЙksz╠ ilo╤Ф kontrolek; oferuje rСwnie© wiЙcej
-funkcji zarz╠dzania geometri╠ i innych poleceЯ. Aby u©ywaФ BLT nie
-trzeba ЁataФ plikСw ╪rСdЁowych Tcl ani Tk, trzeba jednak mieФ
-zainstalowanego Tcl/Tk. Je╤li programuje siЙ w Tcl/Tk, lepiej
-zainstalowaФ BLT. Trzeba rСwnie© zainstalowaФ Tcl/Tk.
+%description -l pl.UTF-8
+BLT jest rozszerzeniem Tk. Najbardziej uе╪ytecznд┘ funkcjд┘ BLT jest
+rozszerzenie Tk o wiд≥kszд┘ iloе⌡д┤ kontrolek; oferuje rцЁwnieе╪ wiд≥cej
+funkcji zarzд┘dzania geometriд┘ i innych poleceе└. Aby uе╪ywaд┤ BLT nie
+trzeba е┌ataд┤ plikцЁw е╨rцЁdе┌owych Tcl ani Tk, trzeba jednak mieд┤
+zainstalowanego Tcl/Tk. Jeе⌡li programuje siд≥ w Tcl/Tk, lepiej
+zainstalowaд┤ BLT. Trzeba rцЁwnieе╪ zainstalowaд┤ Tcl/Tk.
 
-%description -l pt_BR
+%description -l pt_BR.UTF-8
 O BLT fornece componentes (widgets) e comandos extras para programas
-Tk. Ele inclui componentes grАficos, gerenciamento de geometria de
+Tk. Ele inclui componentes grц║ficos, gerenciamento de geometria de
 tabelas e folders.
 
-%description -l ru
-BLT - это расширение набора Tk. Наиболее ценной особенностью BLT
-является предоставление бОльшего набора примитивов для Tk, но он также
-предоставляет больше менеджеров геометрии и прочих команд. Следует
-отметить, что вам не надо изменять исходных текстов Tcl или Tk для
-того, чтобы использовать BLT, но вам необходимо установить Tcl/Tk для
-использования BLT.
+%description -l ru.UTF-8
+BLT - я█я┌п╬ я─п╟я│я┬п╦я─п╣п╫п╦п╣ п╫п╟п╠п╬я─п╟ Tk. п²п╟п╦п╠п╬п╩п╣п╣ я├п╣п╫п╫п╬п╧ п╬я│п╬п╠п╣п╫п╫п╬я│я┌я▄я▌ BLT
+я▐п╡п╩я▐п╣я┌я│я▐ п©я─п╣п╢п╬я│я┌п╟п╡п╩п╣п╫п╦п╣ п╠п·п╩я▄я┬п╣пЁп╬ п╫п╟п╠п╬я─п╟ п©я─п╦п╪п╦я┌п╦п╡п╬п╡ п╢п╩я▐ Tk, п╫п╬ п╬п╫ я┌п╟п╨п╤п╣
+п©я─п╣п╢п╬я│я┌п╟п╡п╩я▐п╣я┌ п╠п╬п╩я▄я┬п╣ п╪п╣п╫п╣п╢п╤п╣я─п╬п╡ пЁп╣п╬п╪п╣я┌я─п╦п╦ п╦ п©я─п╬я┤п╦я┘ п╨п╬п╪п╟п╫п╢. п║п╩п╣п╢я┐п╣я┌
+п╬я┌п╪п╣я┌п╦я┌я▄, я┤я┌п╬ п╡п╟п╪ п╫п╣ п╫п╟п╢п╬ п╦п╥п╪п╣п╫я▐я┌я▄ п╦я│я┘п╬п╢п╫я▀я┘ я┌п╣п╨я│я┌п╬п╡ Tcl п╦п╩п╦ Tk п╢п╩я▐
+я┌п╬пЁп╬, я┤я┌п╬п╠я▀ п╦я│п©п╬п╩я▄п╥п╬п╡п╟я┌я▄ BLT, п╫п╬ п╡п╟п╪ п╫п╣п╬п╠я┘п╬п╢п╦п╪п╬ я┐я│я┌п╟п╫п╬п╡п╦я┌я▄ Tcl/Tk п╢п╩я▐
+п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦я▐ BLT.
 
-%description -l uk
-BLT - це розширення набору Tk. Найб╕льш ц╕нною особлив╕стю BLT ╓
-надання б╕льшого набору прим╕тив╕в для Tk, але в╕н також нада╓ б╕льше
-менджер╕в геометр╕╖ та ╕нших команд. Сл╕д зазначити, що вам не треба
-зм╕нювати вих╕дних текст╕в Tcl або Tk для того, щоб використовувати
-BLT, але вам необх╕дно встановити Tcl/Tk для використання BLT.
+%description -l uk.UTF-8
+BLT - я├п╣ я─п╬п╥я┬п╦я─п╣п╫п╫я▐ п╫п╟п╠п╬я─я┐ Tk. п²п╟п╧п╠я√п╩я▄я┬ я├я√п╫п╫п╬я▌ п╬я│п╬п╠п╩п╦п╡я√я│я┌я▌ BLT я■
+п╫п╟п╢п╟п╫п╫я▐ п╠я√п╩я▄я┬п╬пЁп╬ п╫п╟п╠п╬я─я┐ п©я─п╦п╪я√я┌п╦п╡я√п╡ п╢п╩я▐ Tk, п╟п╩п╣ п╡я√п╫ я┌п╟п╨п╬п╤ п╫п╟п╢п╟я■ п╠я√п╩я▄я┬п╣
+п╪п╣п╫п╢п╤п╣я─я√п╡ пЁп╣п╬п╪п╣я┌я─я√я≈ я┌п╟ я√п╫я┬п╦я┘ п╨п╬п╪п╟п╫п╢. п║п╩я√п╢ п╥п╟п╥п╫п╟я┤п╦я┌п╦, я┴п╬ п╡п╟п╪ п╫п╣ я┌я─п╣п╠п╟
+п╥п╪я√п╫я▌п╡п╟я┌п╦ п╡п╦я┘я√п╢п╫п╦я┘ я┌п╣п╨я│я┌я√п╡ Tcl п╟п╠п╬ Tk п╢п╩я▐ я┌п╬пЁп╬, я┴п╬п╠ п╡п╦п╨п╬я─п╦я│я┌п╬п╡я┐п╡п╟я┌п╦
+BLT, п╟п╩п╣ п╡п╟п╪ п╫п╣п╬п╠я┘я√п╢п╫п╬ п╡я│я┌п╟п╫п╬п╡п╦я┌п╦ Tcl/Tk п╢п╩я▐ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐ BLT.
 
 %package devel
 Summary:	BLT development package
-Summary(pl):	Pakiet dla programistСw BLT
+Summary(pl.UTF-8):   Pakiet dla programistцЁw BLT
 Group:		Development/Tools
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 BLT header files.
 
-%description devel -l pl
-Pliki nagЁСwkowe BLT.
+%description devel -l pl.UTF-8
+Pliki nagе┌цЁwkowe BLT.
 
 %package static
 Summary:	BLT static libraries
-Summary(pl):	Biblioteki statyczne BLT
+Summary(pl.UTF-8):   Biblioteki statyczne BLT
 Group:		Development/Tools
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 BLT static libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne BLT.
 
 %package demos
 Summary:	BLT demos and examples
-Summary(pl):	Dema i przykЁady do BLT
-Summary(pt_BR):	Programas que demonstram as caracterМsticas do BLT
+Summary(pl.UTF-8):   Dema i przykе┌ady do BLT
+Summary(pt_BR.UTF-8):   Programas que demonstram as caracterц╜sticas do BLT
 Group:		Development/Tools
 Requires:	%{name} = %{version}-%{release}
 
 %description demos
 BLT demos and examples.
 
-%description demos -l pl
-Programy demonstracyjne i przykЁadowe do BLT.
+%description demos -l pl.UTF-8
+Programy demonstracyjne i przykе┌adowe do BLT.
 
-%description demos -l pt_BR
-Programas que demonstram as caracterМsticas do BLT.
+%description demos -l pt_BR.UTF-8
+Programas que demonstram as caracterц╜sticas do BLT.
 
 %prep
 %setup -q -n %{name}%{version}
