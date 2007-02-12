@@ -1,9 +1,9 @@
 Summary:	A Tk toolkit extension, including widgets, geometry managers, etc
-Summary(es.UTF-8):   Componentes (widgets) y comandos extras para aplicaciones Tk
-Summary(pl.UTF-8):   Rozszerzenie Tk umożliwiające operowanie na kontrolkach i wiele innych
-Summary(pt_BR.UTF-8):   Componentes (widgets) e comandos extras para aplicações Tk
-Summary(ru.UTF-8):   Расширение набора Tk, включая графические примитивы, менеджеры геометрии и т.д
-Summary(uk.UTF-8):   Розширення набору Tk, включаючи графічні примітиви, менеджери геометрії і т.і
+Summary(es.UTF-8):	Componentes (widgets) y comandos extras para aplicaciones Tk
+Summary(pl.UTF-8):	Rozszerzenie Tk umożliwiające operowanie na kontrolkach i wiele innych
+Summary(pt_BR.UTF-8):	Componentes (widgets) e comandos extras para aplicações Tk
+Summary(ru.UTF-8):	Расширение набора Tk, включая графические примитивы, менеджеры геометрии и т.д
+Summary(uk.UTF-8):	Розширення набору Tk, включаючи графічні примітиви, менеджери геометрії і т.і
 Name:		blt
 Version:	2.4z
 Release:	1
@@ -76,7 +76,7 @@ BLT, але вам необхідно встановити Tcl/Tk для вик�
 
 %package devel
 Summary:	BLT development package
-Summary(pl.UTF-8):   Pakiet dla programistów BLT
+Summary(pl.UTF-8):	Pakiet dla programistów BLT
 Group:		Development/Tools
 Requires:	%{name} = %{version}-%{release}
 
@@ -88,7 +88,7 @@ Pliki nagłówkowe BLT.
 
 %package static
 Summary:	BLT static libraries
-Summary(pl.UTF-8):   Biblioteki statyczne BLT
+Summary(pl.UTF-8):	Biblioteki statyczne BLT
 Group:		Development/Tools
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -100,8 +100,8 @@ Biblioteki statyczne BLT.
 
 %package demos
 Summary:	BLT demos and examples
-Summary(pl.UTF-8):   Dema i przykłady do BLT
-Summary(pt_BR.UTF-8):   Programas que demonstram as características do BLT
+Summary(pl.UTF-8):	Dema i przykłady do BLT
+Summary(pt_BR.UTF-8):	Programas que demonstram as características do BLT
 Group:		Development/Tools
 Requires:	%{name} = %{version}-%{release}
 
