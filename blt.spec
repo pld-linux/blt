@@ -146,20 +146,19 @@ install -d $RPM_BUILD_ROOT{%{_prefix}/lib,%{_examplesdir}/%{name}-%{version},%{_
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	libdir=%{_libdir}
 
-ln -sf libBLT24.so $RPM_BUILD_ROOT%{_libdir}/libBLT.so
-ln -sf libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so
+{__ln_s} libBLT24.so $RPM_BUILD_ROOT%{_libdir}/libBLT.so
+{__ln_s} libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so
 
-# use dynamically linked binaries
-mv -f $RPM_BUILD_ROOT%{_bindir}/bltsh{24,}
-mv -f $RPM_BUILD_ROOT%{_bindir}/bltwish{24,}
+%{__mv} $RPM_BUILD_ROOT%{_bindir}/bltsh{24,}
+%{__mv} $RPM_BUILD_ROOT%{_bindir}/bltwish{24,}
 
 # bitmap.n is provided by tk-devel
-rm -f $RPM_BUILD_ROOT%{_mandir}/mann/bitmap.n
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/mann/bitmap.n
 
-mv -f $RPM_BUILD_ROOT%{_ulibdir}/blt2.4/demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-cp -rf examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+%{__mv} $RPM_BUILD_ROOT%{_ulibdir}/blt2.4/demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -ra examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-rm -f html/Makefile* $RPM_BUILD_ROOT%{_ulibdir}/blt2.4/{NEWS,README,PROBLEMS}
+%{__rm} html/Makefile* $RPM_BUILD_ROOT%{_ulibdir}/blt2.4/{NEWS,PROBLEMS,README}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -169,18 +168,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README NEWS PROBLEMS
-%attr(755,root,root) %{_bindir}/*
+%doc NEWS PROBLEMS README
+%attr(755,root,root) %{_bindir}/blt*sh
 %attr(755,root,root) %{_libdir}/libBLT*24.so
 %{_ulibdir}/blt2.4
 
 %files devel
 %defattr(644,root,root,755)
 %doc html
+%attr(755,root,root) %{_libdir}/libBLT.so
 %attr(755,root,root) %{_libdir}/libBLT*[A-Za-z].so
 %{_includedir}/blt*.h
-%{_mandir}/mann/*
-%{_mandir}/man3/*
+%{_mandir}/mann/*.n*
+%{_mandir}/man3/*.3*
 
 %files static
 %defattr(644,root,root,755)
