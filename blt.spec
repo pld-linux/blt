@@ -127,6 +127,7 @@ Programas que demonstram as características do BLT.
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
+%patch10 -p1
 
 %build
 cp -f /usr/share/automake/config.* cf
