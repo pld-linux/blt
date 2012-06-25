@@ -146,8 +146,8 @@ install -d $RPM_BUILD_ROOT{%{_prefix}/lib,%{_examplesdir}/%{name}-%{version},%{_
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	libdir=%{_libdir}
 
-{__ln_s} libBLT24.so $RPM_BUILD_ROOT%{_libdir}/libBLT.so
-{__ln_s} libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so
+%{__ln_s} libBLT24.so $RPM_BUILD_ROOT%{_libdir}/libBLT.so
+%{__ln_s} libBLTlite24.so $RPM_BUILD_ROOT%{_libdir}/libBLTlite.so
 
 %{__mv} $RPM_BUILD_ROOT%{_bindir}/bltsh{24,}
 %{__mv} $RPM_BUILD_ROOT%{_bindir}/bltwish{24,}
