@@ -21,6 +21,7 @@ Patch6:		%{name}-norpath.patch
 Patch7:		%{name}-tcl85.patch
 Patch8:		%{name}-decl.patch
 Patch9:		%{name}-link.patch
+Patch10:	%{name}-64bit.patch
 URL:		http://blt.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -140,7 +141,7 @@ cp -f /usr/share/automake/config.* cf
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_prefix},%{_examplesdir}/%{name}-%{version},%{_mandir}}
 
-%{__make} install \
+%{__make} -j1 install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	libdir=%{_libdir}
 
