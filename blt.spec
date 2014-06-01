@@ -6,7 +6,7 @@ Summary(ru.UTF-8):	Расширение набора Tk, включая граф
 Summary(uk.UTF-8):	Розширення набору Tk, включаючи графічні примітиви, менеджери геометрії і т.і
 Name:		blt
 Version:	2.4z
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/blt/BLT%{version}.tar.gz
