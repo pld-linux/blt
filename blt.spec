@@ -6,7 +6,7 @@ Summary(ru.UTF-8):	Расширение набора Tk, включая граф
 Summary(uk.UTF-8):	Розширення набору Tk, включаючи графічні примітиви, менеджери геометрії і т.і
 Name:		blt
 Version:	2.4z
-Release:	2
+Release:	3
 License:	MIT
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/blt/BLT%{version}.tar.gz
@@ -22,6 +22,7 @@ Patch7:		%{name}-tcl85.patch
 Patch8:		%{name}-decl.patch
 Patch9:		%{name}-link.patch
 Patch10:	%{name}-64bit.patch
+Patch11:	%{name}-tcl86.patch
 URL:		http://blt.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -128,11 +129,13 @@ Programas que demonstram as características do BLT.
 %patch8 -p1
 %patch9 -p1
 %patch10 -p1
+%patch11 -p0
 
 %build
 cp -f /usr/share/automake/config.* cf
 %{__autoconf}
 %configure \
+	CFLAGS="-DUSE_INTERP_RESULT %{rpmcflags}" \
 	--with-tcllibs=%{_libdir} \
 	--with-tklibs=%{_libdir}
 
